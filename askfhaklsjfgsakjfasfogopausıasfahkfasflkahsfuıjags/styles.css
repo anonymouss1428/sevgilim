@@ -4,9 +4,11 @@ body {
     background-color: #fef3f3;
     color: #333;
 }
+
 .hidden {
     display: none;
 }
+
 button {
     padding: 10px 20px;
     margin: 10px;
@@ -15,17 +17,22 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
 button:hover {
     background-color: #ff6666;
 }
-h1 {
-    color: #ff6347;
-}
-h2 {
-    font-size: 2em;
-    color: #32cd32;
-}
-img {
-    margin-top: 20px;
+
+.image {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    display: inline-block;
     border-radius: 10px;
+    object-fit: cover;
+}
+
+.question-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
