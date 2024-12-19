@@ -1,12 +1,11 @@
 function checkAnswer(correct, button, current, next) {
-    // Eğer doğru cevap verilirse, ilgili soruyu gizle ve bir sonrakini göster
-    if (button.innerText === correct) {
+    if (button.querySelector('img').alt === correct) {
         if (current && next) {
+            // Doğru cevap verildiğinde, doğru soruyu gizle ve bir sonrakini göster
             document.getElementById(current).classList.add('hidden');
             document.getElementById(next).classList.remove('hidden');
         }
     } else {
-        // Yanlış cevap verildiğinde, butonu gizle
-        button.style.display = 'none';
+        button.style.display = 'none'; // Yanlış cevap verildiğinde butonu gizle
     }
 }
