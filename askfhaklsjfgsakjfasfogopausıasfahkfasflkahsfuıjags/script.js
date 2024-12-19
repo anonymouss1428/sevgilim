@@ -1,7 +1,7 @@
 function checkAnswer(correct, button, current, next) {
     if (button.querySelector('img').alt === correct) {
         if (current && next) {
-            // Doğru cevap verildiğine, doğru soruyu gizle ve bir sonrakini göster
+            // Doğru cevap verildiğinde, doğru soruyu gizle ve bir sonrakini göster
             document.getElementById(current).classList.add('hidden');
             document.getElementById(next).classList.remove('hidden');
         }
