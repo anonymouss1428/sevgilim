@@ -10,86 +10,46 @@
 <h1>Sevgilime Özel Oyun</h1>
 
 <!-- Soru 1 -->
-<div id="question1">
+<div id="question1" class="question-container">
     <p>Soru 1: Benim en sevdiğim renk nedir?</p>
-    <div class="question-container">
-        <button onclick="checkAnswer('Mavi', this, 'question1', 'question2')">
-            <img src="/askfhaklsjfgsakjfasfogopausıasfahkfasflkahsfuıjags/image1.jpg" alt="Mavi" class="image">
-        </button>
-        <button onclick="checkAnswer('Kırmızı', this)">
-            <img src="/askfhaklsjfgsakjfasfogopausıasfahkfasflkahsfuıjags/image2.jpg" alt="Kırmızı" class="image">
-        </button>
-        <button onclick="checkAnswer('Sarı', this)">
-            <img src="/askfhaklsjfgsakjfasfogopausıasfahkfasflkahsfuıjags/image3.jpg" alt="Sarı" class="image">
-        </button>
-        <button onclick="checkAnswer('Yeşil', this)">
-            <img src="/askfhaklsjfgsakjfasfogopausıasfahkfasflkahsfuıjags/image4.jpg" alt="Yeşil" class="image">
-        </button>
-    </div>
+    <button onclick="checkAnswer('Mavi', 'question1', 'question2', 'image1.jpg')">Mavi</button>
+    <button onclick="checkAnswer('Kırmızı')">Kırmızı</button>
+    <button onclick="checkAnswer('Sarı')">Sarı</button>
+    <button onclick="checkAnswer('Yeşil')">Yeşil</button>
 </div>
 
 <!-- Soru 2 -->
-<div id="question2" class="hidden">
+<div id="question2" class="question-container hidden">
     <p>Soru 2: Benim en sevdiğim yemek nedir?</p>
-    <div class="question-container">
-        <button onclick="checkAnswer('Makarna', this, 'question2', 'question3')">
-            <img src="image1.jpg" alt="Makarna" class="image">
-        </button>
-        <button onclick="checkAnswer('Pizza', this)">
-            <img src="image2.jpg" alt="Pizza" class="image">
-        </button>
-        <button onclick="checkAnswer('Hamburger', this)">
-            <img src="image3.jpg" alt="Hamburger" class="image">
-        </button>
-        <button onclick="checkAnswer('Salata', this)">
-            <img src="image4.jpg" alt="Salata" class="image">
-        </button>
-    </div>
+    <button onclick="checkAnswer('Makarna', 'question2', 'question3', 'image2.jpg')">Makarna</button>
+    <button onclick="checkAnswer('Pizza')">Pizza</button>
+    <button onclick="checkAnswer('Hamburger')">Hamburger</button>
+    <button onclick="checkAnswer('Salata')">Salata</button>
 </div>
 
 <!-- Soru 3 -->
-<div id="question3" class="hidden">
+<div id="question3" class="question-container hidden">
     <p>Soru 3: Dünyanın en güzel kızı kim?</p>
-    <div class="question-container">
-        <button onclick="checkAnswer('Sevgilim', this, 'question3', 'question4')">
-            <img src="image1.jpg" alt="Sevgilim" class="image">
-        </button>
-        <button onclick="checkAnswer('Angelina Jolie', this)">
-            <img src="image2.jpg" alt="Angelina Jolie" class="image">
-        </button>
-        <button onclick="checkAnswer('Scarlett Johansson', this)">
-            <img src="image3.jpg" alt="Scarlett Johansson" class="image">
-        </button>
-        <button onclick="checkAnswer('Beyoncé', this)">
-            <img src="image4.jpg" alt="Beyoncé" class="image">
-        </button>
-    </div>
+    <button onclick="checkAnswer('Sevgilim', 'question3', 'question4', 'image3.jpg')">Sevgilim</button>
+    <button onclick="checkAnswer('Angelina Jolie')">Angelina Jolie</button>
+    <button onclick="checkAnswer('Scarlett Johansson')">Scarlett Johansson</button>
+    <button onclick="checkAnswer('Beyoncé')">Beyoncé</button>
 </div>
 
 <!-- Soru 4 -->
-<div id="question4" class="hidden">
+<div id="question4" class="question-container hidden">
     <p>Soru 4: Türkiye'nin en büyük spor kulübü hangisidir?</p>
-    <div class="question-container">
-        <button onclick="checkAnswer('Fenerbahçe', this, 'question4', 'result')">
-            <img src="image1.jpg" alt="Fenerbahçe" class="image">
-        </button>
-        <button onclick="checkAnswer('Galatasaray', this)">
-            <img src="image2.jpg" alt="Galatasaray" class="image">
-        </button>
-        <button onclick="checkAnswer('Beşiktaş', this)">
-            <img src="image3.jpg" alt="Beşiktaş" class="image">
-        </button>
-        <button onclick="checkAnswer('Trabzonspor', this)">
-            <img src="image4.jpg" alt="Trabzonspor" class="image">
-        </button>
-    </div>
+    <button onclick="checkAnswer('Fenerbahçe', 'question4', 'result', 'image4.jpg')">Fenerbahçe</button>
+    <button onclick="checkAnswer('Galatasaray')">Galatasaray</button>
+    <button onclick="checkAnswer('Beşiktaş')">Beşiktaş</button>
+    <button onclick="checkAnswer('Trabzonspor')">Trabzonspor</button>
 </div>
 
 <!-- Tebrik Mesajı -->
 <div id="result" class="hidden">
     <h2>Tebrikler!</h2>
     <p>Hediyen bu!</p>
-    <img src="hediye.jpg" alt="Hediye" style="width: 300px; border-radius: 10px;">
+    <img id="gift-image" src="" alt="Hediye" style="width: 300px; border-radius: 10px;">
 </div>
 
 <script src="script.js"></script>

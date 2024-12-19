@@ -22,17 +22,6 @@ button:hover {
     background-color: #ff6666;
 }
 
-.image {
-    width: 150px;
-    height: 150px;
-    margin: 10px;
-    display: inline-block;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
 .question-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin: 20px 0;
 }
