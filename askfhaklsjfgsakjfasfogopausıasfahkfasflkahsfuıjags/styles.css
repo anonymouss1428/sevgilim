@@ -1,27 +1,149 @@
+/* Genel stil */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: #fef3f3;
+    background-color: #f0f8ff;
     color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/white-linen.png'), url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: overlay;
+    overflow: hidden;
+    position: relative;
 }
 
+/* Başlık */
+h1 {
+    font-size: 3rem;
+    color: #fff;
+    background: linear-gradient(to right, #ff7f50, #ff6347);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease;
+}
+
+/* Gizli öğe */
 .hidden {
     display: none;
 }
 
+/* Butonlar */
 button {
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #ff9999;
+    padding: 15px 30px;
+    margin: 15px;
+    background-color: #ff6347;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
+    font-size: 1.2rem;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
 }
 
 button:hover {
-    background-color: #ff6666;
+    background-color: #ff7f50;
+    transform: scale(1.1);
 }
 
+button:active {
+    background-color: #ff4500;
+}
+
+/* Soruların düzeni */
 .question-container {
-    margin: 20px 0;
+    margin: 30px 0;
+    position: relative;
+}
+
+/* Soru metin stili */
+.question-container p {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Soru ve şıkların üzerine kar tanesi ekleniyor */
+.question-container::before {
+    content: "❄️";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    animation: snowflakes 5s linear infinite;
+}
+
+/* Resimlerin düzeni */
+.question-container img {
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.question-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Sonuç mesajı */
+#result {
+    background-color: #ffebcd;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#result h2 {
+    font-size: 2rem;
+    color: #ff6347;
+}
+
+#result p {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+#result img {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Kar Tanesi Animasyonu */
+@keyframes snowflakes {
+    0% {
+        transform: translateY(-10vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+body::after {
+    content: "❄️";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    font-size: 3rem;
+    animation: snowflakes 5s linear infinite;
+    z-index: -1;
+}
+
+/* Fade-in Effect for Title */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
