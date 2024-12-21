@@ -67,7 +67,7 @@ button:hover {
 
 .heart {
     color: red;
-    animation: fall-heart 4s ease-out infinite;
+    animation: rise-heart 4s ease-out infinite;
 }
 
 #result h2 {
@@ -105,15 +105,15 @@ button:hover {
     }
 }
 
-/* Kalp animasyonu (Yukarıdan aşağıya doğru) */
-@keyframes fall-heart {
+/* Kalp animasyonu (Aşağıdan yukarıya doğru) */
+@keyframes rise-heart {
     0% {
-        top: -100px;
+        top: 100vh;
         left: calc(100% * var(--random-left));
         transform: scale(1);
     }
     100% {
-        top: 100vh;
+        top: -100px;
         left: calc(100% * var(--random-left));
         transform: scale(1);
     }
