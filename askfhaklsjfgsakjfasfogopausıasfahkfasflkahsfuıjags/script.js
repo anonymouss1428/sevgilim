@@ -43,7 +43,7 @@ function startSnowfall() {
         }, 15000); // Kar taneleri daha uzun süre düşsün
     }, 1000); // Kar tanelerinin daha az ve büyük olmasını sağlamak için aralık 1000 ms
 
-    // Kalp efektini yarat ve yukarıdan aşağıya düşmesini sağla
+    // Kalp efektini yarat ve aşağıdan yukarıya düşmesini sağla
     setInterval(() => {
         const heart = document.createElement('div');
         heart.className = 'heart';
