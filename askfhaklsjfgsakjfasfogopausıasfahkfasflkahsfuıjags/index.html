@@ -7,34 +7,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div id="snow"></div> <!-- Kar animasyonu için -->
 <h1>Sevgilime Özel Oyun</h1>
 <div class="tree"></div>
+
+<!-- Soru 1 -->
 <div id="question1" class="question-container">
     <p>Soru 1: Benim en sevdiğim renk nedir?</p>
-    <button onclick="checkAnswer('Mavi', this, 'question1', 'question2')">Mavi</button>
-    <button onclick="checkAnswer('Kırmızı', this)">Kırmızı</button>
-    <button onclick="checkAnswer('Sarı', this)">Sarı</button>
-    <button onclick="checkAnswer('Yeşil', this)">Yeşil</button>
+    <button onclick="checkAnswer('Mavi', 'question1', 'question2')">Mavi</button>
+    <button onclick="checkAnswer('Kırmızı')">Kırmızı</button>
+    <button onclick="checkAnswer('Sarı')">Sarı</button>
+    <button onclick="checkAnswer('Yeşil')">Yeşil</button>
 </div>
+
+<!-- Soru 2 -->
 <div id="question2" class="hidden question-container">
     <p>Soru 2: Benim en sevdiğim yemek nedir?</p>
-    <button onclick="checkAnswer('Makarna', this, 'question2', 'question3')">Makarna</button>
-    <button onclick="checkAnswer('Pizza', this)">Pizza</button>
-    <button onclick="checkAnswer('Hamburger', this)">Hamburger</button>
-    <button onclick="checkAnswer('Salata', this)">Salata</button>
+    <button onclick="checkAnswer('Makarna', 'question2', 'question3')">Makarna</button>
+    <button onclick="checkAnswer('Pizza')">Pizza</button>
+    <button onclick="checkAnswer('Hamburger')">Hamburger</button>
+    <button onclick="checkAnswer('Salata')">Salata</button>
 </div>
+
+<!-- Soru 3 -->
 <div id="question3" class="hidden question-container">
     <p>Soru 3: Dünyanın en güzel kızı kim?</p>
-    <button onclick="checkAnswer('Sevgilim', this, 'question3', 'result')">Sevgilim</button>
-    <button onclick="checkAnswer('Angelina Jolie', this)">Angelina Jolie</button>
-    <button onclick="checkAnswer('Scarlett Johansson', this)">Scarlett Johansson</button>
-    <button onclick="checkAnswer('Beyoncé', this)">Beyoncé</button>
+    <button onclick="checkAnswer('Sevgilim', 'question3', 'result')">Sevgilim</button>
+    <button onclick="checkAnswer('Angelina Jolie')">Angelina Jolie</button>
+    <button onclick="checkAnswer('Scarlett Johansson')">Scarlett Johansson</button>
+    <button onclick="checkAnswer('Beyoncé')">Beyoncé</button>
 </div>
+
+<!-- Tebrik Mesajı -->
 <div id="result" class="hidden">
     <h2>Tebrikler!</h2>
     <p>Hediyen bu!</p>
     <img src="hediye.jpg" alt="Hediye" style="width: 300px; border-radius: 10px;">
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
