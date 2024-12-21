@@ -1,3 +1,27 @@
+function checkAnswer(correct, current, next, giftImage = null) {
+    const currentElement = document.getElementById(current);
+    const nextElement = document.getElementById(next);
+    const resultElement = document.getElementById('result');
+    const giftImgElement = document.getElementById('gift-image');
+
+    if (event.target.innerText === correct) {
+        if (giftImage) {
+            giftImgElement.src = giftImage;
+            resultElement.classList.remove('hidden');
+            currentElement.classList.add('hidden');
+            showHearts();  // Kalp efekti doğru cevap verildiğinde başlar
+            setTimeout(() => {
+                resultElement.classList.add('hidden');
+                if (nextElement) {
+                    nextElement.classList.remove('hidden');
+                }
+            }, 2000);
+        }
+    } else {
+        alert("Yanlış cevap! Tekrar deneyin.");
+    }
+}
+
 function startSnowfall() {
     const container = document.createElement('div');
     container.className = 'effect-container';

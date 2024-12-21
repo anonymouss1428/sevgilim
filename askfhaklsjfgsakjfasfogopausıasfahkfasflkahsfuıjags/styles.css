@@ -100,7 +100,7 @@ button:hover {
     }
     100% {
         top: 100vh;
-        left: calc(100% * var(--random-left));
+        left: calc(100% * var(--random-left)); /* Yatayda farklı konumlar */
         transform: scale(1);
     }
 }
