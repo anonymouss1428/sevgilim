@@ -88,17 +88,24 @@ button:hover {
 }
 
 /* Kar tanelerinin düşme animasyonu */
+.snowflake {
+    position: absolute;
+    font-size: 3em; /* Kar tanelerinin boyutunu büyütüyoruz */
+    color: white;
+    z-index: 1;
+    animation: fall 5s infinite linear;
+}
+
 @keyframes fall {
     0% {
         top: -50px;
         left: 0;
     }
     100% {
-        top: 100vh;
-        left: calc(100% * var(--random-left));
-    }
+        top: 100vh; /* Ekranın altına kadar düşmesi */
+        left: calc(100% * var(--random-left)); /* Yatayda rastgele dağılım */
+ }
 }
-
 /* Kalp animasyonu */
 @keyframes rise {
     0% {

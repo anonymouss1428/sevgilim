@@ -22,29 +22,30 @@ function checkAnswer(correct, current, next, giftImage = null) {
     }
 }
 
-function startSnowfall() {
-    const container = document.createElement('div');
-    container.className = 'effect-container';
-    document.body.appendChild(container);
-
-    setInterval(() => {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.textContent = '❄';
-
-        // Kar tanelerinin yatayda rastgele oluşması için random-left kullanımı
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-
-        // Kar tanelerinin düşme süresiyle birlikte daha yavaş hareket etmesi için animationDuration ayarı
-        snowflake.style.animationDuration = (Math.random() * 3 + 4) + 's';
-        snowflake.style.opacity = Math.random();
-        container.appendChild(snowflake);
-
+function showSnow() {
+    const container = document.querySelector('.effect-container');
+    for (let i = 0; i < 10; i++) {
         setTimeout(() => {
-            snowflake.remove();
-        }, 5000); // Kar tanesinin ekrandan kaybolması
-    }, 100); // Kar tanesi oluşturma intervali
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄';
+
+            // Kar tanelerinin yatayda rastgele dağılmasını sağlıyoruz
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+
+            // Kar tanelerinin daha yavaş düşmesini sağlıyoruz
+            snowflake.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            snowflake.style.opacity = Math.random();
+
+            container.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000); // Kar tanesinin kaybolması için süre
+        }, i * 200);
+    }
 }
+
 
 function showHearts() {
     const container = document.querySelector('.effect-container');
