@@ -53,17 +53,17 @@ button:hover {
     pointer-events: none;
 }
 
+.heart {
+    position: absolute;
+    font-size: 2em;
+    color: red; /* Kırmızı kalp efekti */
+    animation: rise 2s ease-out infinite;
+}
 
 /* Kar taneleri */
 .snowflake {
     color: white;
     animation-name: rise;
-}
-
-/* Kalp */
-.heart {
-    color: red; /* Kırmızı kalp efekti */
-    animation-name: rise; /* Kalp yukarıya doğru hareket etsin */
 }
 
 #result h2 {
@@ -84,12 +84,12 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Hediye görseli için gölge */
 }
 
-
+/* Kalp animasyonu */
 @keyframes rise {
     0% {
         transform: translateY(0);
     }
     100% {
-        transform: translateY(-300px); /* Yukarıya doğru hareket */
+        transform: translateY(-300px);
     }
 }

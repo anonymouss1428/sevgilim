@@ -3,14 +3,14 @@ function checkAnswer(correct, current, next, giftImage = null) {
     const nextElement = document.getElementById(next);
     const resultElement = document.getElementById('result');
     const giftImgElement = document.getElementById('gift-image');
-
+    showSnows();
     if (event.target.innerText === correct) {
+
         if (giftImage) {
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
-            showHearts(); // Kalp efektini başlat
-            showSnow(); // Kar tanelerini başlat
+            showHearts();  // Sadece kalp efekti çalışacak
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
@@ -21,26 +21,6 @@ function checkAnswer(correct, current, next, giftImage = null) {
     } else {
         alert("Yanlış cevap! Tekrar deneyin.");
     }
-}
-
-function startSnowfall() {
-    const container = document.createElement('div');
-    container.className = 'effect-container';
-    document.body.appendChild(container);
-
-    setInterval(() => {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.textContent = '❄';
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = 5 + Math.random() * 2 + 's';
-        snowflake.style.opacity = Math.random();
-        container.appendChild(snowflake);
-
-        setTimeout(() => {
-            snowflake.remove();
-        }, 5000);
-    }, 200);
 }
 
 function showHearts() {
@@ -62,7 +42,7 @@ function showHearts() {
     }
 }
 
-function showSnow() {
+function showSnows() {
     const container = document.querySelector('.effect-container');
     for (let i = 0; i < 10; i++) {
         setTimeout(() => {
@@ -70,15 +50,17 @@ function showSnow() {
             snowflake.className = 'snowflake';
             snowflake.textContent = '❄';
             snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.animation = 'snowFall 5s infinite linear';
-            snowflake.style.opacity = Math.random();
+            snowflake.style.top = window.innerHeight + 'px';
+            snowflake.style.animation = 'rise 2s ease-out';
             container.appendChild(snowflake);
 
             setTimeout(() => {
                 snowflake.remove();
-            }, 5000);
+            }, 2000);
         }, i * 200);
     }
 }
 
-window.onload = startSnowfall;  // Kar tanelerinin sürekli olarak düşmesini başlat
+window.onload = () => {
+    showSnows();
+};
