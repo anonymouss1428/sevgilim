@@ -1,29 +1,27 @@
-function checkAnswer(correct, current, next) {
-    const currentQuestion = document.getElementById(current);
-    const nextQuestion = next ? document.getElementById(next) : null;
+function checkAnswer(correct, current, next, giftImage = null) {
+    const currentElement = document.getElementById(current);
+    const nextElement = document.getElementById(next);
+    const resultElement = document.getElementById('result');
+    const giftImgElement = document.getElementById('gift-image');
 
-    if (confirm(`Doğru cevap: ${correct}. Sonraki soruya geçmek ister misin?`)) {
-        currentQuestion.classList.add('hidden');
-        if (nextQuestion) {
-            nextQuestion.classList.remove('hidden');
-        } else {
-            document.getElementById('result').classList.remove('hidden');
+    // Cevap doğruysa
+    if (event.target.innerText === correct) {
+        if (giftImage) {
+            // Hediye resmini göster
+            giftImgElement.src = giftImage;
+            resultElement.classList.remove('hidden');
+            currentElement.classList.add('hidden');
+
+            // 2 saniye sonra sonucu gizle ve bir sonraki soruyu göster
+            setTimeout(() => {
+                resultElement.classList.add('hidden');
+                if (nextElement) {
+                    nextElement.classList.remove('hidden');
+                }
+            }, 2000);
         }
     } else {
-        alert("Yanlış cevap! Lütfen tekrar deneyin.");
+        // Yanlış cevap verdiğinde
+        alert("Yanlış cevap! Tekrar deneyin.");
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const snowContainer = document.querySelector('.snow');
-
-    for (let i = 0; i < 150; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.style.left = Math.random() * 100 + 'vw';
-        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        snowflake.textContent = '❄';
-        snowContainer.appendChild(snowflake);
-    }
-});
