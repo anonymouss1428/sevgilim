@@ -55,19 +55,18 @@ button:hover {
 
 .snowflake, .heart {
     position: absolute;
-    font-size: 5em;
-    opacity: 0.8;
+    font-size: 2em;
+    animation: fall 5s infinite linear;
 }
 
 .snowflake {
     color: white;
     z-index: 1;
-    animation: fall 12s infinite linear;
 }
 
 .heart {
     color: red;
-    animation: rise-heart 4s ease-out infinite;
+    animation: rise 2s ease-out infinite;
 }
 
 #result h2 {
@@ -91,30 +90,21 @@ button:hover {
 /* Kar tanelerinin düşme animasyonu */
 @keyframes fall {
     0% {
-        top: -100px;
+        top: -50px;
         left: calc(100% * var(--random-left)); /* Yatayda rastgele başlama */
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(2);
     }
     100% {
         top: 100vh;
-        left: calc(100% * var(--random-left)); /* Yatayda farklı konumlar */
-        transform: scale(1);
+        left: calc(100% * var(--random-left)); /* Yatayda rastgele konum */
     }
 }
 
-/* Kalp animasyonu (Aşağıdan yukarıya doğru) */
-@keyframes rise-heart {
+/* Kalp animasyonu */
+@keyframes rise {
     0% {
-        top: 100vh;
-        left: calc(100% * var(--random-left));
-        transform: scale(1);
+        transform: translateY(0);
     }
     100% {
-        top: -100px;
-        left: calc(100% * var(--random-left));
-        transform: scale(1);
+        transform: translateY(-300px); /* Yüksekliği istediğiniz kadar ayarlayabilirsiniz */
     }
 }
