@@ -9,7 +9,8 @@ function checkAnswer(correct, current, next, giftImage = null) {
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
-            showHearts();
+            showHearts(); // Kalp efektini başlat
+            showSnow(); // Kar tanelerini başlat
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
@@ -22,30 +23,25 @@ function checkAnswer(correct, current, next, giftImage = null) {
     }
 }
 
-function showSnow() {
-    const container = document.querySelector('.effect-container');
-    for (let i = 0; i < 10; i++) {
+function startSnowfall() {
+    const container = document.createElement('div');
+    container.className = 'effect-container';
+    document.body.appendChild(container);
+
+    setInterval(() => {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.textContent = '❄';
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.animationDuration = 5 + Math.random() * 2 + 's';
+        snowflake.style.opacity = Math.random();
+        container.appendChild(snowflake);
+
         setTimeout(() => {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            snowflake.textContent = '❄';
-
-            // Kar tanelerinin yatayda rastgele dağılmasını sağlıyoruz
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-
-            // Kar tanelerinin daha yavaş düşmesini sağlıyoruz
-            snowflake.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            snowflake.style.opacity = Math.random();
-
-            container.appendChild(snowflake);
-
-            setTimeout(() => {
-                snowflake.remove();
-            }, 5000); // Kar tanesinin kaybolması için süre
-        }, i * 200);
-    }
+            snowflake.remove();
+        }, 5000);
+    }, 200);
 }
-
 
 function showHearts() {
     const container = document.querySelector('.effect-container');
@@ -54,8 +50,8 @@ function showHearts() {
             const heart = document.createElement('div');
             heart.className = 'heart';
             heart.textContent = '❤';
-            heart.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele dağılma
-            heart.style.top = window.innerHeight + 'px'; // Kalp aşağıdan yukarıya hareket etmeli
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
             heart.style.animation = 'rise 2s ease-out';
             container.appendChild(heart);
 
@@ -66,4 +62,23 @@ function showHearts() {
     }
 }
 
-window.onload = startSnowfall;
+function showSnow() {
+    const container = document.querySelector('.effect-container');
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animation = 'snowFall 5s infinite linear';
+            snowflake.style.opacity = Math.random();
+            container.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }, i * 200);
+    }
+}
+
+window.onload = startSnowfall;  // Kar tanelerinin sürekli olarak düşmesini başlat
