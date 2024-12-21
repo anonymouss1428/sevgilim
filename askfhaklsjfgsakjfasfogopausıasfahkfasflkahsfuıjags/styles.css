@@ -62,7 +62,7 @@ button:hover {
 .snowflake {
     color: white;
     z-index: 1;
-    animation: fall 10s infinite linear;
+    animation: fall 12s infinite linear;
 }
 
 .heart {
@@ -96,7 +96,7 @@ button:hover {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.5);
+        transform: scale(2);
     }
     100% {
         top: 100vh;
