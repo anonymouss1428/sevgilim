@@ -4,7 +4,7 @@ body {
     text-align: center;
     background-color: #ff4d4d; /* Kırmızı arka plan */
     color: #333;
-    background-image: url('https://example.com/christmas-tree-bg.jpg'); /* Yılbaşı ağacı arka planı */
+    background-image: url('https://www.example.com/your-background-image.jpg'); /* Yılbaşı ağacı arka planı */
     background-size: cover;
     background-position: center center;
     position: relative;
