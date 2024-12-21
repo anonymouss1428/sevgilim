@@ -53,18 +53,11 @@ button:hover {
     pointer-events: none;
 }
 
-/* Ortak animasyon için */
-.snowflake, .heart {
-    position: absolute;
-    font-size: 2em;
-    animation: fall 5s infinite linear;
-}
 
 /* Kar taneleri */
 .snowflake {
     color: white;
-    z-index: 1;
-    animation-name: snowFall;
+    animation-name: rise;
 }
 
 /* Kalp */
@@ -91,19 +84,7 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Hediye görseli için gölge */
 }
 
-/* Kar tanelerinin düşme animasyonu */
-@keyframes snowFall {
-    0% {
-        top: -50px;
-        left: 0;
-    }
-    100% {
-        top: 100vh;
-        left: calc(100% * var(--random-left)); /* Yatayda rastgele dağılım */
-    }
-}
 
-/* Kalp animasyonu */
 @keyframes rise {
     0% {
         transform: translateY(0);
