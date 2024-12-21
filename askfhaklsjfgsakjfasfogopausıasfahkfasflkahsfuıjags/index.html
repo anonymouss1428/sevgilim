@@ -3,39 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yılbaşı Temalı Oyun</title>
+    <title>Sevgilime Özel Yeni Yıl Oyunu</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="snow"></div> <!-- Kar efekti -->
-<h1>Sevgilime Özel Oyun</h1>
-<div class="tree"></div> <!-- Çam ağacı -->
+<div class="snow"></div>
+<h1>Sevgilime Özel Yeni Yıl Oyunu 🎄</h1>
 
 <!-- Soru 1 -->
-<div id="question1" class="question-container">
+<div id="question1">
     <p>Soru 1: Benim en sevdiğim renk nedir?</p>
     <button onclick="checkAnswer('Mavi', 'question1', 'question2')">Mavi</button>
-    <button onclick="checkAnswer('Kırmızı')">Kırmızı</button>
-    <button onclick="checkAnswer('Sarı')">Sarı</button>
-    <button onclick="checkAnswer('Yeşil')">Yeşil</button>
+    <button onclick="checkAnswer('Kırmızı', 'question1', 'question2')">Kırmızı</button>
+    <button onclick="checkAnswer('Yeşil', 'question1', 'question2')">Yeşil</button>
 </div>
 
 <!-- Soru 2 -->
-<div id="question2" class="hidden question-container">
+<div id="question2" class="hidden">
     <p>Soru 2: Benim en sevdiğim yemek nedir?</p>
     <button onclick="checkAnswer('Makarna', 'question2', 'question3')">Makarna</button>
-    <button onclick="checkAnswer('Pizza')">Pizza</button>
-    <button onclick="checkAnswer('Hamburger')">Hamburger</button>
-    <button onclick="checkAnswer('Salata')">Salata</button>
+    <button onclick="checkAnswer('Pizza', 'question2', 'question3')">Pizza</button>
+    <button onclick="checkAnswer('Hamburger', 'question2', 'question3')">Hamburger</button>
 </div>
 
 <!-- Soru 3 -->
-<div id="question3" class="hidden question-container">
+<div id="question3" class="hidden">
     <p>Soru 3: Dünyanın en güzel kızı kim?</p>
-    <button onclick="checkAnswer('Sevgilim', 'question3', 'result')">Sevgilim</button>
-    <button onclick="checkAnswer('Angelina Jolie')">Angelina Jolie</button>
-    <button onclick="checkAnswer('Scarlett Johansson')">Scarlett Johansson</button>
-    <button onclick="checkAnswer('Beyoncé')">Beyoncé</button>
+    <button onclick="checkAnswer('Sevgilim', 'question3', 'question4')">Sevgilim</button>
+    <button onclick="checkAnswer('Angelina Jolie', 'question3', 'question4')">Angelina Jolie</button>
+    <button onclick="checkAnswer('Scarlett Johansson', 'question3', 'question4')">Scarlett Johansson</button>
+</div>
+
+<!-- Soru 4 -->
+<div id="question4" class="hidden">
+    <p>Soru 4: Türkiye'nin en büyük spor kulübü hangisidir?</p>
+    <button onclick="checkAnswer('Fenerbahçe', 'question4', null)">Fenerbahçe</button>
+    <button onclick="checkAnswer('Galatasaray', 'question4', null)">Galatasaray</button>
+    <button onclick="checkAnswer('Beşiktaş', 'question4', null)">Beşiktaş</button>
 </div>
 
 <!-- Tebrik Mesajı -->
