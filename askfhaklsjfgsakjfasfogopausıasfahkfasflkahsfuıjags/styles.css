@@ -7,9 +7,8 @@ body {
     background-image: url('https://example.com/christmas-tree-bg.jpg'); /* Yılbaşı ağacı arka planı */
     background-size: cover;
     background-position: center center;
-    position: relative;
+    position: relative; /* Arka planın üstünde öğeleri tutabilmek için */
     overflow: hidden;
-    z-index: 0; /* Arka planın en altta olması için */
 }
 
 /* Kar Tanesi Animasyonu */
@@ -45,7 +44,7 @@ h1 {
     font-size: 36px;
     margin-top: 50px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Başlık gölgesi */
-    z-index: 10; /* Başlık, butonlardan önce gelsin */
+    z-index: 5; /* Başlık, butonlardan önce gelsin */
     position: relative;
 }
 
@@ -61,7 +60,7 @@ button {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(4px); /* Cam efekti */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 5; /* Butonları arka plandaki görsellerin önünde tutmak için */
+    z-index: 10; /* Butonları arka plandaki görsellerin önünde tutmak için */
     position: relative;
 }
 
@@ -79,8 +78,8 @@ button:hover {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
-    z-index: 10; /* Soruların butonlardan önce görünmesi için */
-    position: relative;
+    position: relative; /* Konteyner öğelerinin sırasını ayarlayabilmek için */
+    z-index: 5; /* Soruların butonlardan önce görünmesi için */
 }
 
 /* Doğru Cevap Mesajı */
@@ -89,7 +88,7 @@ button:hover {
     font-size: 24px;
     color: #28a745;
     margin-top: 20px;
-    z-index: 10; /* Sonucun butonlardan önce görünmesi için */
+    z-index: 5; /* Sonucun butonlardan önce görünmesi için */
     position: relative;
 }
 
