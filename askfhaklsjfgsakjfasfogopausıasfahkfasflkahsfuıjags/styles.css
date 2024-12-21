@@ -1,66 +1,110 @@
+/* Genel stil */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: #1d2c41;
-    color: white;
     margin: 0;
+    padding: 0;
+    background: url('https://i.imgur.com/sT4jtqG.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    position: relative;
     overflow: hidden;
 }
 
-h1 {
-    margin: 20px;
-    font-size: 2.5rem;
-    color: #ffcc00;
-    text-shadow: 2px 2px 4px #000;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 2px solid #ffcc00;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    color: #1d2c41;
-    text-shadow: 1px 1px 2px #fff;
-    transition: 0.3s ease;
-}
-
-button:hover {
-    background-color: #ffcc00;
-    color: #1d2c41;
-    transform: scale(1.1);
-}
-
-.hidden {
-    display: none;
-}
-
-.snow {
+/* Kar tanesi animasyonu */
+body::before, body::after {
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    overflow: hidden;
+    background: url('https://i.imgur.com/1yZ9cqe.png');
+    background-size: contain;
+    animation: snow 10s linear infinite;
+    z-index: -1;
+    opacity: 0.7;
 }
 
-.snowflake {
-    position: absolute;
-    top: -10px;
-    font-size: 1.5rem;
-    color: white;
-    animation: fall linear infinite;
-    opacity: 0.8;
+body::after {
+    animation-delay: 5s; /* Farklı zamanlarda kar taneleri */
+    transform: scale(1.5); /* Daha yoğun bir görünüm için */
 }
 
-@keyframes fall {
+/* Kar tanesi hareketi */
+@keyframes snow {
     0% {
-        transform: translateY(0) rotate(0deg);
+        background-position: 0 -100%;
     }
     100% {
-        transform: translateY(100vh) rotate(360deg);
+        background-position: 0 200%;
     }
+}
+
+/* Başlık */
+h1 {
+    font-size: 3rem;
+    color: #ffcc00;
+    background: linear-gradient(to right, #ff7f50, #ff4500, #32cd32, #1e90ff);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Soru kutuları */
+.question-container {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Sorular */
+.question-container p {
+    font-size: 1.5rem;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+/* Butonlar */
+button {
+    padding: 15px 30px;
+    margin: 15px;
+    background: linear-gradient(to right, #ff6347, #ffd700, #32cd32, #1e90ff);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(to right, #32cd32, #1e90ff, #ffd700, #ff6347);
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Tebrik Mesajı */
+#result {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#result h2 {
+    font-size: 2rem;
+    color: #32cd32;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#result p {
+    font-size: 1.5rem;
+    color: #333;
 }
