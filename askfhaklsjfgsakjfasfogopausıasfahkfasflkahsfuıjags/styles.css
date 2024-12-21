@@ -62,7 +62,8 @@ button:hover {
 .snowflake {
     color: white;
     z-index: 1;
-    /* Kar tanesinin boyutunu büyüttük ve daha büyük dağılmasını sağladık */
+    opacity: 0.8;
+    animation-duration: 8s;
 }
 
 .heart {
@@ -92,7 +93,7 @@ button:hover {
 @keyframes fall {
     0% {
         top: -100px; /* Kar tanelerinin başlangıç noktası */
-        left: 0;
+        left: calc(100% * var(--random-left)); /* Yatayda rastgele başlama */
         transform: scale(1); /* İlk başta normal büyüklükte */
     }
     50% {
