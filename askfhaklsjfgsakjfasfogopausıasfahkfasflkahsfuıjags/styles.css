@@ -9,6 +9,7 @@ body {
     background-position: center center;
     position: relative;
     overflow: hidden;
+    z-index: 0; /* Arka planın en altta olması için */
 }
 
 /* Kar Tanesi Animasyonu */
@@ -24,7 +25,7 @@ body {
 .snowflake {
     position: absolute;
     top: -10px;
-    z-index: 999;
+    z-index: 999; /* Kar tanelerinin üstte görünmesi için */
     font-size: 24px;
     color: white;
     animation: snowflakes 10s linear infinite;
@@ -44,6 +45,8 @@ h1 {
     font-size: 36px;
     margin-top: 50px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Başlık gölgesi */
+    z-index: 10; /* Başlık, butonlardan önce gelsin */
+    position: relative;
 }
 
 /* Butonlar */
@@ -58,6 +61,8 @@ button {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(4px); /* Cam efekti */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 5; /* Butonları arka plandaki görsellerin önünde tutmak için */
+    position: relative;
 }
 
 button:hover {
@@ -74,6 +79,8 @@ button:hover {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    z-index: 10; /* Soruların butonlardan önce görünmesi için */
+    position: relative;
 }
 
 /* Doğru Cevap Mesajı */
@@ -82,6 +89,8 @@ button:hover {
     font-size: 24px;
     color: #28a745;
     margin-top: 20px;
+    z-index: 10; /* Sonucun butonlardan önce görünmesi için */
+    position: relative;
 }
 
 #result h2 {
@@ -100,5 +109,5 @@ button:hover {
     animation-duration: 8s;
     opacity: 0.8;
     color: #fff;
+    z-index: 999; /* Kar tanelerinin üstte görünmesi için */
 }
-
