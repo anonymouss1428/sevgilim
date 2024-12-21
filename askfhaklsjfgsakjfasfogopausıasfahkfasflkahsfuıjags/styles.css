@@ -8,11 +8,10 @@ body {
     background-size: cover;
     color: #fff;
     position: relative;
-    overflow: hidden;
 }
 
 /* Kar tanesi animasyonu */
-body::before, body::after {
+body::before {
     content: '';
     position: fixed;
     top: 0;
@@ -21,23 +20,17 @@ body::before, body::after {
     height: 100%;
     background: url('https://i.imgur.com/1yZ9cqe.png');
     background-size: contain;
-    animation: snow 10s linear infinite;
+    animation: snow 20s linear infinite;
     z-index: -1;
-    opacity: 0.7;
-}
-
-body::after {
-    animation-delay: 5s; /* Farklı zamanlarda kar taneleri */
-    transform: scale(1.5); /* Daha yoğun bir görünüm için */
 }
 
 /* Kar tanesi hareketi */
 @keyframes snow {
     0% {
-        background-position: 0 -100%;
+        background-position: 0 0;
     }
     100% {
-        background-position: 0 200%;
+        background-position: 0 100%;
     }
 }
 
@@ -45,7 +38,7 @@ body::after {
 h1 {
     font-size: 3rem;
     color: #ffcc00;
-    background: linear-gradient(to right, #ff7f50, #ff4500, #32cd32, #1e90ff);
+    background: linear-gradient(to right, #ff7f50, #ff4500);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -73,20 +66,18 @@ h1 {
 button {
     padding: 15px 30px;
     margin: 15px;
-    background: linear-gradient(to right, #ff6347, #ffd700, #32cd32, #1e90ff);
+    background-color: #ff4500;
     color: white;
     border: none;
     border-radius: 10px;
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
-    background: linear-gradient(to right, #32cd32, #1e90ff, #ffd700, #ff6347);
+    background-color: #ff6347;
     transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* Tebrik Mesajı */
@@ -100,8 +91,7 @@ button:hover {
 
 #result h2 {
     font-size: 2rem;
-    color: #32cd32;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    color: #ff4500;
 }
 
 #result p {
