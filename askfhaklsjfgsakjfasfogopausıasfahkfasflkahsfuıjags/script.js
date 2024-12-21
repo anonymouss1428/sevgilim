@@ -9,7 +9,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
-            showHearts();  // Kalp efekti doğru cevap verildiğinde başlar
+            showHearts();
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
@@ -31,28 +31,34 @@ function startSnowfall() {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
-        snowflake.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele konum
-        snowflake.style.animationDuration = 5 + Math.random() * 3 + 's'; // Yavaş düşme
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.animationDuration = 3 + Math.random() * 2 + 's';
         snowflake.style.opacity = Math.random();
         container.appendChild(snowflake);
 
         setTimeout(() => {
             snowflake.remove();
-        }, 8000); // Kar tanelerini daha uzun süre ekranda tut
-    }, 1000); // Kar tanelerini daha az ve büyük yapmak için interval
+        }, 5000);
+    }, 200);
+}
 
-    setInterval(() => {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.textContent = '❤';
-        heart.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele konum
-        heart.style.animationDuration = 2 + Math.random() * 1 + 's'; // Kalp hızı rastgele
-        container.appendChild(heart);
-
+function showHearts() {
+    const container = document.querySelector('.effect-container');
+    for (let i = 0; i < 10; i++) {
         setTimeout(() => {
-            heart.remove();
-        }, 3000); // Kalp efekti 3 saniye sürsün
-    }, 1000);
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = '❤';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            heart.style.animation = 'rise 2s ease-out';
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }, i * 200);
+    }
 }
 
 window.onload = startSnowfall;
