@@ -4,38 +4,7 @@ body {
     text-align: center;
     background-color: #ff4d4d; /* Kırmızı arka plan */
     color: #333;
-    background-image: url('https://www.example.com/your-background-image.jpg'); /* Yılbaşı ağacı arka planı */
-    background-size: cover;
-    background-position: center center;
     position: relative;
-    overflow: hidden;
-}
-
-/* Kar Tanesi Animasyonu */
-@keyframes snowflakes {
-    0% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(100vh);
-    }
-}
-
-.snowflake {
-    position: absolute;
-    top: -10px;
-    z-index: 999;
-    font-size: 24px;
-    color: white;
-    animation: snowflakes 10s linear infinite;
-}
-
-.snowflake:nth-child(odd) {
-    animation-duration: 12s;
-}
-
-.snowflake:nth-child(even) {
-    animation-duration: 8s;
 }
 
 /* Başlık */
@@ -92,12 +61,4 @@ button:hover {
 /* Gizli Elementler */
 .hidden {
     display: none;
-}
-
-/* Kar Tanelerini Yaratmak */
-.snowflake {
-    font-size: 24px;
-    animation-duration: 8s;
-    opacity: 0.8;
-    color: #fff;
 }
