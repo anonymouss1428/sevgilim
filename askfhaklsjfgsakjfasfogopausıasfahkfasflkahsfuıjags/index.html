@@ -3,56 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sevgilime Özel Yeni Yıl Oyunu</title>
+    <title>Sevgilime Özel Oyun</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="background-overlay"></div>
-<h1>Sevgilime Özel Yeni Yıl Oyunu</h1>
-
-<!-- Soru 1 -->
+<h1>Sevgilime Özel Oyun</h1>
+<div class="tree"></div>
 <div id="question1" class="question-container">
     <p>Soru 1: Benim en sevdiğim renk nedir?</p>
-    <button onclick="checkAnswer('Mavi', 'question1', 'question2', 'image1.jpg')">Mavi</button>
-    <button onclick="checkAnswer('Kırmızı')">Kırmızı</button>
-    <button onclick="checkAnswer('Sarı')">Sarı</button>
-    <button onclick="checkAnswer('Yeşil')">Yeşil</button>
+    <button onclick="checkAnswer('Mavi', this, 'question1', 'question2')">Mavi</button>
+    <button onclick="checkAnswer('Kırmızı', this)">Kırmızı</button>
+    <button onclick="checkAnswer('Sarı', this)">Sarı</button>
+    <button onclick="checkAnswer('Yeşil', this)">Yeşil</button>
 </div>
-
-<!-- Soru 2 -->
-<div id="question2" class="question-container hidden">
+<div id="question2" class="hidden question-container">
     <p>Soru 2: Benim en sevdiğim yemek nedir?</p>
-    <button onclick="checkAnswer('Makarna', 'question2', 'question3', 'image2.jpg')">Makarna</button>
-    <button onclick="checkAnswer('Pizza')">Pizza</button>
-    <button onclick="checkAnswer('Hamburger')">Hamburger</button>
-    <button onclick="checkAnswer('Salata')">Salata</button>
+    <button onclick="checkAnswer('Makarna', this, 'question2', 'question3')">Makarna</button>
+    <button onclick="checkAnswer('Pizza', this)">Pizza</button>
+    <button onclick="checkAnswer('Hamburger', this)">Hamburger</button>
+    <button onclick="checkAnswer('Salata', this)">Salata</button>
 </div>
-
-<!-- Soru 3 -->
-<div id="question3" class="question-container hidden">
+<div id="question3" class="hidden question-container">
     <p>Soru 3: Dünyanın en güzel kızı kim?</p>
-    <button onclick="checkAnswer('Sevgilim', 'question3', 'question4', 'image3.jpg')">Sevgilim</button>
-    <button onclick="checkAnswer('Angelina Jolie')">Angelina Jolie</button>
-    <button onclick="checkAnswer('Scarlett Johansson')">Scarlett Johansson</button>
-    <button onclick="checkAnswer('Beyoncé')">Beyoncé</button>
+    <button onclick="checkAnswer('Sevgilim', this, 'question3', 'result')">Sevgilim</button>
+    <button onclick="checkAnswer('Angelina Jolie', this)">Angelina Jolie</button>
+    <button onclick="checkAnswer('Scarlett Johansson', this)">Scarlett Johansson</button>
+    <button onclick="checkAnswer('Beyoncé', this)">Beyoncé</button>
 </div>
-
-<!-- Soru 4 -->
-<div id="question4" class="question-container hidden">
-    <p>Soru 4: Türkiye'nin en büyük spor kulübü hangisidir?</p>
-    <button onclick="checkAnswer('Fenerbahçe', 'question4', 'result', 'image4.jpg')">Fenerbahçe</button>
-    <button onclick="checkAnswer('Galatasaray')">Galatasaray</button>
-    <button onclick="checkAnswer('Beşiktaş')">Beşiktaş</button>
-    <button onclick="checkAnswer('Trabzonspor')">Trabzonspor</button>
-</div>
-
-<!-- Tebrik Mesajı -->
 <div id="result" class="hidden">
     <h2>Tebrikler!</h2>
     <p>Hediyen bu!</p>
-    <img id="gift-image" src="" alt="Hediye" style="width: 300px; border-radius: 10px;">
+    <img src="hediye.jpg" alt="Hediye" style="width: 300px; border-radius: 10px;">
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
