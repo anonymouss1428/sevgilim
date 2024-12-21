@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f0f8ff; /* Hafif mavi arka plan */
+    background-color: #ff4d4d; /* Kırmızı arka plan */
     color: #333;
     background-image: url('https://example.com/christmas-tree-bg.jpg'); /* Yılbaşı ağacı arka planı */
     background-size: cover;
