@@ -55,13 +55,14 @@ button:hover {
 
 .snowflake, .heart {
     position: absolute;
-    font-size: 2em;
-    animation: fall 5s infinite linear;
+    font-size: 5em; /* Kar tanelerinin boyutunu büyüttük */
+    animation: fall 8s infinite linear;
 }
 
 .snowflake {
     color: white;
     z-index: 1;
+    /* Kar tanesinin boyutunu büyüttük ve daha büyük dağılmasını sağladık */
 }
 
 .heart {
@@ -90,12 +91,17 @@ button:hover {
 /* Kar tanelerinin düşme animasyonu */
 @keyframes fall {
     0% {
-        top: -50px;
+        top: -100px; /* Kar tanelerinin başlangıç noktası */
         left: 0;
+        transform: scale(1); /* İlk başta normal büyüklükte */
+    }
+    50% {
+        transform: scale(1.5); /* Yarı yolda büyürler */
     }
     100% {
         top: 100vh;
         left: calc(100% * var(--random-left));
+        transform: scale(1); /* Sonunda eski boyutlarına dönerler */
     }
 }
 
