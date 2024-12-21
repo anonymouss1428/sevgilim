@@ -31,15 +31,19 @@ function startSnowfall() {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
+
+        // Kar tanelerinin yatayda rastgele oluşması için random-left kullanımı
         snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
+
+        // Kar tanelerinin düşme süresiyle birlikte daha yavaş hareket etmesi için animationDuration ayarı
+        snowflake.style.animationDuration = (Math.random() * 3 + 4) + 's';
         snowflake.style.opacity = Math.random();
         container.appendChild(snowflake);
 
         setTimeout(() => {
             snowflake.remove();
-        }, 5000);
-    }, 200);
+        }, 5000); // Kar tanesinin ekrandan kaybolması
+    }, 100); // Kar tanesi oluşturma intervali
 }
 
 function showHearts() {
@@ -49,8 +53,8 @@ function showHearts() {
             const heart = document.createElement('div');
             heart.className = 'heart';
             heart.textContent = '❤';
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.top = window.innerHeight + 'px';
+            heart.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele dağılma
+            heart.style.top = window.innerHeight + 'px'; // Kalp aşağıdan yukarıya hareket etmeli
             heart.style.animation = 'rise 2s ease-out';
             container.appendChild(heart);
 
@@ -61,27 +65,4 @@ function showHearts() {
     }
 }
 
-function showSnow() {
-    const container = document.querySelector('.effect-container');
-    for (let i = 0; i < 5; i++) {
-        setTimeout(() => {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            snowflake.textContent = '❄';
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.top = -50 + Math.random() * -200 + 'px'; // Kar tanelerinin yukarıdan başlaması
-            snowflake.style.animation = 'fall 10s infinite linear'; // Daha yavaş düşmesi
-            snowflake.style.opacity = Math.random();
-            container.appendChild(snowflake);
-
-            setTimeout(() => {
-                snowflake.remove();
-            }, 10000); // Kar tanesinin görünme süresi
-        }, i * 200);
-    }
-}
-
-window.onload = function() {
-    startSnowfall();
-    showSnow();
-};
+window.onload = startSnowfall;
