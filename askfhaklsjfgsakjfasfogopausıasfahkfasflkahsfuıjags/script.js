@@ -32,7 +32,7 @@ function startSnowfall() {
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
         snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = 3 + Math.random() * 2 + 's';
+        snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
         snowflake.style.opacity = Math.random();
         container.appendChild(snowflake);
 
@@ -61,4 +61,27 @@ function showHearts() {
     }
 }
 
-window.onload = startSnowfall;
+function showSnow() {
+    const container = document.querySelector('.effect-container');
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.top = -50 + Math.random() * -200 + 'px'; // Kar tanelerinin yukarıdan başlaması
+            snowflake.style.animation = 'fall 10s infinite linear'; // Daha yavaş düşmesi
+            snowflake.style.opacity = Math.random();
+            container.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000); // Kar tanesinin görünme süresi
+        }, i * 200);
+    }
+}
+
+window.onload = function() {
+    startSnowfall();
+    showSnow();
+};
