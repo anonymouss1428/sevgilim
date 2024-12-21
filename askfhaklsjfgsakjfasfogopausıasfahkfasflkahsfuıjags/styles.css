@@ -1,45 +1,14 @@
+/* Genel Stil Ayarları */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f0f8ff; /* Soğuk bir mavi ton */
+    background-color: #f0f8ff; /* Hafif mavi arka plan */
     color: #333;
-    background-image: url('christmas-tree-bg.jpg'); /* Yılbaşı ağacı arka planı */
+    background-image: url('https://example.com/christmas-tree-bg.jpg'); /* Yılbaşı ağacı arka planı */
     background-size: cover;
-    background-position: center;
-    animation: snowfall 10s infinite linear;
-}
-
-/* Kar Yağışı Animasyonu */
-@keyframes snowfall {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 100%; }
-}
-
-.hidden {
-    display: none;
-}
-
-/* Yılbaşı Butonları */
-button {
-    padding: 15px 30px;
-    margin: 15px;
-    background-color: #a8d8f2; /* Buz mavisi buton rengi */
-    border: 2px solid #66b3cc;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-    box-shadow: 0 8px 12px rgba(0, 0, 255, 0.2), 0 0 25px rgba(0, 0, 255, 0.5);
-    background-image: url('frosted-glass.png'); /* Buzlu cam efekti */
-    background-size: 100% 100%;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-button:hover {
-    background-color: #66b3cc;
-    box-shadow: 0 8px 20px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.8);
+    background-position: center center;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Kar Tanesi Animasyonu */
@@ -48,67 +17,88 @@ button:hover {
         transform: translateY(-10px);
     }
     100% {
-        transform: translateY(100vh); /* Kar taneleri aşağıya doğru düşecek */
+        transform: translateY(100vh);
     }
 }
 
-/* Kar Tanelerinin Efekti */
 .snowflake {
     position: absolute;
-    top: -50px;
-    font-size: 30px;
-    color: #fff;
-    z-index: 100;
-    animation: snowflakes 10s infinite linear;
+    top: -10px;
+    z-index: 999;
+    font-size: 24px;
+    color: white;
+    animation: snowflakes 10s linear infinite;
 }
 
+.snowflake:nth-child(odd) {
+    animation-duration: 12s;
+}
+
+.snowflake:nth-child(even) {
+    animation-duration: 8s;
+}
+
+/* Başlık */
+h1 {
+    color: #ffffff;
+    font-size: 36px;
+    margin-top: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Başlık gölgesi */
+}
+
+/* Butonlar */
+button {
+    padding: 12px 24px;
+    margin: 15px;
+    background-color: #89CFF0; /* Buz mavisi */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(4px); /* Cam efekti */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    transform: scale(1.1); /* Hover efekt: buton büyür */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Soru Konteyneri */
 .question-container {
-    margin: 30px 0;
-    position: relative;
+    margin: 20px 0;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.7); /* Hafif beyaz arka plan */
     border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    background-image: url('christmas-tree-lights.png');
-    background-size: cover;
-    background-position: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Yılbaşı Ağacı Emoji Düzeni */
-.question-container::before {
-    content: "🎄"; /* Yılbaşı Ağacı */
-    font-size: 60px;
-    position: absolute;
-    top: -70px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: spin 3s infinite linear;
+/* Doğru Cevap Mesajı */
+#result {
+    display: none;
+    font-size: 24px;
+    color: #28a745;
+    margin-top: 20px;
 }
 
-/* Kar Tanesi ve Süslemeler */
-.question-container::after {
-    content: "❄️❄️❄️"; /* Kar Taneleri */
-    font-size: 50px;
-    position: absolute;
-    bottom: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: snowflakes 5s infinite linear;
+#result h2 {
+    font-size: 32px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Kar Tanesi Efekti */
-@keyframes snowflakes {
-    0% {
-        transform: translateY(0) rotate(0);
-    }
-    100% {
-        transform: translateY(100px) rotate(360deg);
-    }
+/* Gizli Elementler */
+.hidden {
+    display: none;
 }
 
-/* Buton odaklanıldığında */
-button:focus {
-    outline: none;
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.7);
+/* Kar Tanelerini Yaratmak */
+.snowflake {
+    font-size: 24px;
+    animation-duration: 8s;
+    opacity: 0.8;
+    color: #fff;
 }
 
