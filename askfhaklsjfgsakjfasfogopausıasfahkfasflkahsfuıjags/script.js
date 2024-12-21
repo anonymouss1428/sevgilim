@@ -27,34 +27,31 @@ function startSnowfall() {
     container.className = 'effect-container';
     document.body.appendChild(container);
 
-    // Kar tanelerini yarat ve ekranda dağılmasını sağla
     setInterval(() => {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
         snowflake.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele konum
-        snowflake.style.animationDuration = 12 + Math.random() * 3 + 's'; // Daha yavaş düşme
+        snowflake.style.animationDuration = 5 + Math.random() * 3 + 's'; // Yavaş düşme
         snowflake.style.opacity = Math.random();
         container.appendChild(snowflake);
 
-        // Kar tanesini temizle
         setTimeout(() => {
             snowflake.remove();
-        }, 15000); // Kar taneleri daha uzun süre düşsün
-    }, 1000); // Kar tanelerinin daha az ve büyük olmasını sağlamak için aralık 1000 ms
+        }, 8000); // Kar tanelerini daha uzun süre ekranda tut
+    }, 1000); // Kar tanelerini daha az ve büyük yapmak için interval
 
-    // Kalp efektini yarat ve aşağıdan yukarıya düşmesini sağla
     setInterval(() => {
         const heart = document.createElement('div');
         heart.className = 'heart';
         heart.textContent = '❤';
         heart.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele konum
-        heart.style.animationDuration = 4 + Math.random() * 2 + 's'; // Kalp hızı rastgele
+        heart.style.animationDuration = 2 + Math.random() * 1 + 's'; // Kalp hızı rastgele
         container.appendChild(heart);
 
         setTimeout(() => {
             heart.remove();
-        }, 5000); // Kalp efekti 5 saniye sürsün
+        }, 3000); // Kalp efekti 3 saniye sürsün
     }, 1000);
 }
 
