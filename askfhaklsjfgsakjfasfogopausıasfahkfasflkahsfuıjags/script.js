@@ -1,4 +1,3 @@
-// Cevap Kontrol Fonksiyonu
 function checkAnswer(correct, current, next, giftImage = null) {
     const currentElement = document.getElementById(current);
     const nextElement = document.getElementById(next);
@@ -6,8 +5,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
     const giftImgElement = document.getElementById('gift-image');
 
     // Cevap doğruysa
-    const userAnswer = event.target.innerText; // Kullanıcının cevabını al
-    if (userAnswer === correct) {
+    if (event.target.innerText === correct) {
         if (giftImage) {
             // Hediye resmini göster
             giftImgElement.src = giftImage;
@@ -23,7 +21,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
             }, 2000);
         }
     } else {
-        // Yanlış cevap verildiğinde
+        // Yanlış cevap verdiğinde
         alert("Yanlış cevap! Tekrar deneyin.");
     }
 }

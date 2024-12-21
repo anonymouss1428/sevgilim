@@ -1,64 +1,27 @@
-/* Genel Stil Ayarları */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #ff4d4d; /* Kırmızı arka plan */
+    background-color: #fef3f3;
     color: #333;
-    position: relative;
 }
 
-/* Başlık */
-h1 {
-    color: #ffffff;
-    font-size: 36px;
-    margin-top: 50px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Başlık gölgesi */
+.hidden {
+    display: none;
 }
 
-/* Butonlar */
 button {
-    padding: 12px 24px;
-    margin: 15px;
-    background-color: #89CFF0; /* Buz mavisi */
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #ff9999;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 18px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(4px); /* Cam efekti */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
-    transform: scale(1.1); /* Hover efekt: buton büyür */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: #ff6666;
 }
 
-/* Soru Konteyneri */
 .question-container {
     margin: 20px 0;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.7); /* Hafif beyaz arka plan */
-    border-radius: 15px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Doğru Cevap Mesajı */
-#result {
-    display: none;
-    font-size: 24px;
-    color: #28a745;
-    margin-top: 20px;
-}
-
-#result h2 {
-    font-size: 32px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Gizli Elementler */
-.hidden {
-    display: none;
 }
