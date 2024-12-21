@@ -1,73 +1,106 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     background-color: #fef3f3;
     color: #333;
-    background-image: url('snowflakes.png'); /* Kar tanesi arka planı */
+    background-image: url('snowflakes.png'), linear-gradient(to top, #b3d9ff, #ffccff); /* Kar taneleri ve gradient arka plan */
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
+    animation: snowfall 5s infinite linear;
 }
 
+/* Kar Tanesi Animasyonu */
+@keyframes snowfall {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+/* Gizli elementler */
 .hidden {
     display: none;
 }
 
 /* Yılbaşı Butonları */
 button {
-    padding: 12px 25px;
+    padding: 15px 30px;
     margin: 15px;
-    background-color: #66b3ff; /* Buzlu mavi renk */
-    border: 2px solid #3399ff;
-    border-radius: 10px;
+    background-color: #ff4d94; /* Hedeflenen yılbaşı kırmızımsı ton */
+    border: 2px solid #ff1a75;
+    border-radius: 20px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 255, 0.3);
-    background-image: url('ice-crystals.png'); /* Buz kristali desenli arka plan */
-    background-size: 100% 100%;
-    color: white;
+    font-size: 18px;
     font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0 8px 12px rgba(255, 0, 0, 0.3), 0 0 25px rgba(255, 0, 0, 0.5);
+    background-image: url('frosted-glass.png'); /* Buzlu cam efekti */
+    background-size: 100% 100%;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 button:hover {
-    background-color: #3399ff;
-    box-shadow: 0 4px 10px rgba(0, 0, 255, 0.5); /* Hover sırasında daha fazla parlama efekti */
+    background-color: #ff1a75;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.8);
 }
 
-/* Yılbaşı Ağacı ve Kar Küresi Animasyonu */
+/* Yılbaşı Ağacı ve Işık Efekti */
 .question-container {
-    margin: 20px 0;
+    margin: 30px 0;
     position: relative;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    background-image: url('christmas-tree-lights.png');
+    background-size: cover;
+    background-position: center;
+    animation: twinkle 2s infinite ease-in-out;
 }
 
+@keyframes twinkle {
+    0%, 100% {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Yılbaşı Ağacı Emoji Düzeni */
 .question-container::before {
-    content: "🎄"; /* Yılbaşı ağacı emojisi */
-    font-size: 50px;
+    content: "🎄"; /* Yılbaşı Ağacı */
+    font-size: 60px;
     position: absolute;
     top: -60px;
     left: 50%;
     transform: translateX(-50%);
+    animation: spin 3s infinite linear;
 }
 
+/* Kar Tanesi ve Süslemeler */
 .question-container::after {
-    content: "❄️"; /* Kar küresi emojisi */
+    content: "❄️❄️❄️"; /* Kar Taneleri */
     font-size: 50px;
     position: absolute;
     bottom: -60px;
     left: 50%;
     transform: translateX(-50%);
-    animation: snowflakes 1s infinite alternate;
+    animation: snowflakes 5s infinite linear;
 }
 
+/* Kar Tanesi Efekti */
 @keyframes snowflakes {
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0);
     }
     100% {
-        transform: translateY(20px) rotate(360deg);
+        transform: translateY(100px) rotate(360deg);
     }
 }
 
+/* Buton odaklanıldığında */
 button:focus {
     outline: none;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.7);
 }
 
