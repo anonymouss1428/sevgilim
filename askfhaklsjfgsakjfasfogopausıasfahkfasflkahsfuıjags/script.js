@@ -1,31 +1,28 @@
-function checkAnswer(correctAnswer, currentQuestionId, nextQuestionId, giftImageSrc) {
-    // Kullanıcı cevabını kontrol et
-    const buttons = document.querySelectorAll(`#${currentQuestionId} button`);
-    const userAnswer = event.target.innerText;
+function checkAnswer(correct, current, next, giftImage = null) {
+    const currentElement = document.getElementById(current);
+    const nextElement = document.getElementById(next);
+    const resultElement = document.getElementById('result');
+    const giftImgElement = document.getElementById('gift-image');
 
-    // Eğer doğru cevap verilmişse
-    if (userAnswer === correctAnswer) {
-        // Mevcut soruyu gizle
-        document.getElementById(currentQuestionId).classList.add('hidden');
+    // Cevap doğruysa
+    const userAnswer = event.target.innerText; // Kullanıcının cevabını al
+    if (userAnswer === correct) {
+        if (giftImage) {
+            // Hediye resmini göster
+            giftImgElement.src = giftImage;
+            resultElement.classList.remove('hidden');
+            currentElement.classList.add('hidden');
 
-        // Sonraki soruyu göster
-        if (nextQuestionId) {
-            document.getElementById(nextQuestionId).classList.remove('hidden');
-        }
-
-        // Hediye resmi ekle
-        if (giftImageSrc) {
-            const giftImage = document.getElementById('gift-image');
-            giftImage.src = giftImageSrc;
-            document.getElementById('result').classList.remove('hidden');
-
-            // Hediye resmi 2 saniye sonra kaybolacak
+            // 2 saniye sonra sonucu gizle ve bir sonraki soruyu göster
             setTimeout(() => {
-                document.getElementById('result').classList.add('hidden');
+                resultElement.classList.add('hidden');
+                if (nextElement) {
+                    nextElement.classList.remove('hidden');
+                }
             }, 2000);
         }
     } else {
-        // Yanlış cevap verildiyse
-        alert("Yanlış cevap! Lütfen tekrar deneyin.");
+        // Yanlış cevap verildiğinde
+        alert("Yanlış cevap! Tekrar deneyin.");
     }
 }
