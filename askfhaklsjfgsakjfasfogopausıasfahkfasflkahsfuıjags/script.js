@@ -1,64 +1,37 @@
-function checkAnswer(correct, current, next, giftImage = null) {
-    const currentElement = document.getElementById(current);
-    const nextElement = document.getElementById(next);
-    const resultElement = document.getElementById('result');
-    const giftImgElement = document.getElementById('gift-image');
-
-    if (event.target.innerText === correct) {
-        if (giftImage) {
-            giftImgElement.src = giftImage;
-            resultElement.classList.remove('hidden');
-            currentElement.classList.add('hidden');
-            showHearts();
-            setTimeout(() => {
-                resultElement.classList.add('hidden');
-                if (nextElement) {
-                    nextElement.classList.remove('hidden');
-                }
-            }, 2000);
-        }
-    } else {
-        alert("Yanlış cevap! Tekrar deneyin.");
-    }
-}
-
 function startSnowfall() {
     const container = document.createElement('div');
     container.className = 'effect-container';
     document.body.appendChild(container);
 
+    // Kar tanelerini yarat ve ekranda dağıt
     setInterval(() => {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = 3 + Math.random() * 2 + 's';
+        snowflake.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele konum
+        snowflake.style.animationDuration = 10 + Math.random() * 5 + 's'; // Yavaş düşme
         snowflake.style.opacity = Math.random();
         container.appendChild(snowflake);
 
+        // Kar tanesini temizle
         setTimeout(() => {
             snowflake.remove();
-        }, 5000);
-    }, 200);
-}
+        }, 15000); // Kar taneleri daha uzun süre düşsün
+    }, 500); // Kar tanelerinin daha az ve büyük olmasını sağlamak için aralık 500 ms
 
-function showHearts() {
-    const container = document.querySelector('.effect-container');
-    for (let i = 0; i < 10; i++) {
+    // Kalp efektini yarat ve yukarıdan aşağıya düşmesini sağla
+    setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '❤';
+        heart.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele konum
+        heart.style.animationDuration = 4 + Math.random() * 2 + 's'; // Kalp hızı rastgele
+        container.appendChild(heart);
+
         setTimeout(() => {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.textContent = '❤';
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.top = window.innerHeight + 'px';
-            heart.style.animation = 'rise 2s ease-out';
-            container.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 2000);
-        }, i * 200);
-    }
+            heart.remove();
+        }, 5000); // Kalp efekti 5 saniye sürsün
+    }, 1000);
 }
 
 window.onload = startSnowfall;
