@@ -3,13 +3,13 @@ function startSnowfall() {
     container.className = 'effect-container';
     document.body.appendChild(container);
 
-    // Kar tanelerini yarat ve ekranda dağıt
+    // Kar tanelerini yarat ve ekranda dağılmasını sağla
     setInterval(() => {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
         snowflake.style.left = Math.random() * window.innerWidth + 'px'; // Yatayda rastgele konum
-        snowflake.style.animationDuration = 10 + Math.random() * 5 + 's'; // Yavaş düşme
+        snowflake.style.animationDuration = 12 + Math.random() * 3 + 's'; // Daha yavaş düşme
         snowflake.style.opacity = Math.random();
         container.appendChild(snowflake);
 
@@ -17,7 +17,7 @@ function startSnowfall() {
         setTimeout(() => {
             snowflake.remove();
         }, 15000); // Kar taneleri daha uzun süre düşsün
-    }, 500); // Kar tanelerinin daha az ve büyük olmasını sağlamak için aralık 500 ms
+    }, 1000); // Kar tanelerinin daha az ve büyük olmasını sağlamak için aralık 1000 ms
 
     // Kalp efektini yarat ve yukarıdan aşağıya düşmesini sağla
     setInterval(() => {
