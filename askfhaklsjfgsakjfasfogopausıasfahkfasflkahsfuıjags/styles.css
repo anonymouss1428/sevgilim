@@ -1,31 +1,117 @@
-/* Kar Taneleri için Container */
-.background-snowflakes {
-    position: fixed;
-    bottom: 0; /* Kar tanelerini ekranın alt kısmına yerleştir */
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: #1d3557;
+    color: #e63946;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    color: #f1faee;
+    margin-top: 20px;
+    text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 15px;
+    background-color: #457b9d;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: #f1faee;
+}
+
+button:hover {
+    background-color: #1d3557;
+}
+
+.question-container {
+    margin: 40px 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #f1faee;
+}
+
+.effect-container {
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 50%; /* Kar taneleri ekranın alt yarısında olacak şekilde ayarlandı */
+    height: 100%;
     overflow: hidden;
     pointer-events: none;
-    z-index: -1;
 }
 
-/* Kar Taneleri */
-.snowflake {
+.heart {
     position: absolute;
-    font-size: 4em; /* Kar tanelerini büyüttük */
-    color: rgba(255, 255, 255, 0.8);
-    animation: fall 10s linear infinite; /* Animasyon süresini uzatarak kar tanelerini yavaşlattık */
+    font-size: 2em;
+    color: red;
+    animation: rise 2s ease-out infinite;
+    z-index: 1;
 }
 
-/* Kar Tanelerinin Düşme Animasyonu */
-@keyframes fall {
+#result h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    color: #e63946;
+}
+
+#result p {
+    font-size: 24px;
+    color: #f1faee;
+    margin: 15px 0;
+}
+
+#gift-image {
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes rise {
     0% {
         transform: translateY(0);
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh); /* Kar taneleri ekranın altına kadar düşecek */
+        transform: translateY(-300px);
         opacity: 0;
     }
+}
+
+.background-snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.snowflake {
+    position: absolute;
+    font-size: 3em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.snowflake-message {
+    font-size: 2.5em;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
