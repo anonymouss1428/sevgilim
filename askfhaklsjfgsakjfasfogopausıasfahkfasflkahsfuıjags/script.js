@@ -1,3 +1,7 @@
+window.onload = function() {
+    createBackgroundSnowflakes(); // Sayfa yüklendiğinde kar tanelerini ve "Seni Seviyorum" yazısını oluştur
+};
+
 function checkAnswer(correct, current, next, giftImage = null) {
     const currentElement = document.getElementById(current);
     const nextElement = document.getElementById(next);
@@ -49,7 +53,7 @@ function createBackgroundSnowflakes() {
     // "Seni Seviyorum" yazısını kar tanelerinden oluştur
     const message = 'Seni Seviyorum';
 
-    // "Seni Seviyorum" yazısını kar tanelerinden yapmak
+    // Mesajın her bir harfi için kar taneleri eklemek
     const messageArray = message.split('');
     messageArray.forEach((char, index) => {
         const snowflake = document.createElement('div');
@@ -62,10 +66,25 @@ function createBackgroundSnowflakes() {
         snowflake.style.left = `${(50 + (index * 3))}%`; // Mesajın her harfi kar tanesiyle yapılacak
         snowflake.style.animation = `fall ${Math.random() * 5 + 5}s linear infinite`;
         container.appendChild(snowflake);
+    });
 
-        // İlgili harfi yerleştir
-        const charElement = document.createElement('div');
-        charElement.textContent = char;
-        charElement.style.position = 'absolute';
-        charElement.style.top = '50%';
-        charElement.style.left = `${(50 + (index
+    setTimeout(() => {
+        createSnowflakes();
+    }, 5000); // Mesaj gösterildikten sonra kar yağmaya başlasın
+}
+
+function createSnowflakes() {
+    const container = document.querySelector('.background-snowflakes');
+    const numberOfSnowflakes = 10; // Kar taneleri sayısı
+
+    for (let i = 0; i < numberOfSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.textContent = '❄'; // Kar tanesi simgesi
+        snowflake.style.left = Math.random() * 100 + 'vw'; // Rastgele yatay konum
+        snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // Farklı boyutlarda kar taneleri
+        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Her kar tanesinin farklı hızla düşmesi
+        snowflake.style.animationName = 'fall';
+        container.appendChild(snowflake);
+    }
+}
