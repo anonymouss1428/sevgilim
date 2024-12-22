@@ -53,17 +53,20 @@ button:hover {
     pointer-events: none;
 }
 
-.heart {
+.snowflake, .heart {
     position: absolute;
     font-size: 2em;
-    color: red; /* Kırmızı kalp efekti */
-    animation: rise 2s ease-out infinite;
+    animation: fall 5s infinite linear;
 }
 
-/* Kar taneleri */
 .snowflake {
     color: white;
-    animation-name: rise;
+    z-index: 1;
+}
+
+.heart {
+    color: red; /* Kırmızı kalp efekti */
+    animation: rise 2s ease-out infinite;
 }
 
 #result h2 {
@@ -82,6 +85,18 @@ button:hover {
     width: 300px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Hediye görseli için gölge */
+}
+
+/* Kar tanelerinin düşme animasyonu */
+@keyframes fall {
+    0% {
+        top: -50px;
+        left: 0;
+    }
+    100% {
+        top: 100vh;
+        left: calc(100% * var(--random-left));
+    }
 }
 
 /* Kalp animasyonu */
