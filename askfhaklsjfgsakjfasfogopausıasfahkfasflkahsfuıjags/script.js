@@ -46,15 +46,15 @@ function createBackgroundSnowflakes() {
     container.className = 'background-snowflakes';
     document.body.appendChild(container);
 
-    const numberOfSnowflakes = 10; // Kar tanesi sayısını azalttık (10 tane)
+    const numberOfSnowflakes = 10;
 
     for (let i = 0; i < numberOfSnowflakes; i++) {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
-        snowflake.textContent = '❄'; // Kar tanesi simgesi
-        snowflake.style.left = Math.random() * 100 + 'vw'; // Rastgele yatay konum
-        snowflake.style.fontSize = 4 + Math.random() * 2 + 'em'; // Kar tanelerini büyüttük
-        snowflake.style.animationDelay = Math.random() * 5 + 's'; // Rastgele animasyon başlangıçları
+        snowflake.textContent = '❄';
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.fontSize = 4 + Math.random() * 2 + 'em';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
         container.appendChild(snowflake);
     }
 }
