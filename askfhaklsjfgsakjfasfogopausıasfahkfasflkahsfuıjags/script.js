@@ -9,8 +9,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
-            showHearts(); // Kalp efektini başlat
-            showSnow(); // Kar tanelerini başlat
+            showHearts();
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
@@ -19,7 +18,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
             }, 2000);
         }
     } else {
-        alert("Yanlış cevap! Tekrar deneyin.");
+        alert("Yanlış cevapp! Tekrar deneyin.");
     }
 }
 
@@ -33,7 +32,7 @@ function startSnowfall() {
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
         snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = 5 + Math.random() * 2 + 's';
+        snowflake.style.animationDuration = 3 + Math.random() * 2 + 's';
         snowflake.style.opacity = Math.random();
         container.appendChild(snowflake);
 
@@ -62,23 +61,4 @@ function showHearts() {
     }
 }
 
-function showSnow() {
-    const container = document.querySelector('.effect-container');
-    for (let i = 0; i < 10; i++) {
-        setTimeout(() => {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            snowflake.textContent = '❄';
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.animation = 'snowFall 5s infinite linear';
-            snowflake.style.opacity = Math.random();
-            container.appendChild(snowflake);
-
-            setTimeout(() => {
-                snowflake.remove();
-            }, 5000);
-        }, i * 200);
-    }
-}
-
-window.onload = startSnowfall;  // Kar tanelerinin sürekli olarak düşmesini başlat
+window.onload = startSnowfall;
