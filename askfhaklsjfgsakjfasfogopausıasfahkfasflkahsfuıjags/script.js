@@ -22,26 +22,6 @@ function checkAnswer(correct, current, next, giftImage = null) {
     }
 }
 
-function startSnowfall() {
-    const container = document.createElement('div');
-    container.className = 'effect-container';
-    document.body.appendChild(container);
-
-    setInterval(() => {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.textContent = '❄';
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = 3 + Math.random() * 2 + 's';
-        snowflake.style.opacity = Math.random();
-        container.appendChild(snowflake);
-
-        setTimeout(() => {
-            snowflake.remove();
-        }, 5000);
-    }, 200);
-}
-
 function showHearts() {
     const container = document.querySelector('.effect-container');
     for (let i = 0; i < 10; i++) {
@@ -60,5 +40,3 @@ function showHearts() {
         }, i * 200);
     }
 }
-
-window.onload = startSnowfall;

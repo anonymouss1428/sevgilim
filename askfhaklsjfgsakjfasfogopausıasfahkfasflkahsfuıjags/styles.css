@@ -54,6 +54,14 @@ button:hover {
     pointer-events: none;
 }
 
+.heart {
+    position: absolute;
+    font-size: 2em;
+    color: red; /* Kırmızı kalp efekti */
+    animation: rise 2s ease-out infinite;
+    z-index: 1;
+}
+
 #result h2 {
     font-family: 'Pacifico', cursive;
     font-size: 36px;
@@ -70,4 +78,16 @@ button:hover {
     width: 300px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Hediye görseli için gölge */
+}
+
+/* Kalp animasyonu */
+@keyframes rise {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
 }
