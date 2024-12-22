@@ -9,6 +9,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
+            showHearts();
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
@@ -61,5 +62,5 @@ function createBackgroundSnowflakes() {
 // Sayfa yüklendiğinde kar tanelerini oluştur
 window.onload = function() {
     createBackgroundSnowflakes();
-    showHearts();
+
 };
