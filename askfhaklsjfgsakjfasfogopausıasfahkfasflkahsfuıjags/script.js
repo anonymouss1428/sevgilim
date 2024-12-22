@@ -9,7 +9,6 @@ function checkAnswer(correct, current, next, giftImage = null) {
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
-            showHearts();
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
@@ -46,22 +45,21 @@ function createBackgroundSnowflakes() {
     container.className = 'background-snowflakes';
     document.body.appendChild(container);
 
-    const numberOfSnowflakes = 15; // Kar tanesi sayısı
+    const numberOfSnowflakes = 20; // Kar tanesi sayısı
 
     for (let i = 0; i < numberOfSnowflakes; i++) {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄'; // Kar tanesi simgesi
         snowflake.style.left = Math.random() * 100 + 'vw'; // Rastgele yatay konum
-        snowflake.style.top = Math.random() * 100 + 'vh'; // Rastgele dikey konum
-        snowflake.style.fontSize = 3 + Math.random() * 2 + 'em'; // Farklı büyüklükler
+        snowflake.style.fontSize = 2 + Math.random() * 1.5 + 'em'; // Farklı büyüklükler
         snowflake.style.animationDelay = Math.random() * 5 + 's'; // Rastgele animasyon başlangıçları
         container.appendChild(snowflake);
     }
 }
 
 // Sayfa yüklendiğinde kar tanelerini oluştur
-window.onload = createBackgroundSnowflakes;
-
-
-
+window.onload = function() {
+    createBackgroundSnowflakes();
+    showHearts();
+};
