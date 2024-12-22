@@ -18,7 +18,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
             }, 2000);
         }
     } else {
-        alert("Yanlış cevap! Tekrar deneyin.");
+        alert("Yanlış cevapp! Tekrar deneyin.");
     }
 }
 
