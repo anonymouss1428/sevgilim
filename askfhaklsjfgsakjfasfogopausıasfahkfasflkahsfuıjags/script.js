@@ -1,7 +1,3 @@
-window.onload = function() {
-    createBackgroundSnowflakes(); // Sayfa yüklendiğinde kar tanelerini ve "Seni Seviyorum" yazısını oluştur
-};
-
 function checkAnswer(correct, current, next, giftImage = null) {
     const currentElement = document.getElementById(current);
     const nextElement = document.getElementById(next);
@@ -13,7 +9,6 @@ function checkAnswer(correct, current, next, giftImage = null) {
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
-            showHearts(); // Kalp efekti doğru cevapta gösterilecek
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
@@ -21,6 +16,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
                 }
             }, 2000);
         }
+        showHearts(); // Doğru cevap verildiğinde kalp efektini göster
     } else {
         alert("Yanlış cevapp! Tekrar deneyin.");
     }
@@ -50,41 +46,18 @@ function createBackgroundSnowflakes() {
     container.className = 'background-snowflakes';
     document.body.appendChild(container);
 
-    // "Seni Seviyorum" yazısını kar tanelerinden oluştur
-    const message = 'Seni Seviyorum';
-
-    // Mesajın her bir harfi için kar taneleri eklemek
-    const messageArray = message.split('');
-    messageArray.forEach((char, index) => {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.textContent = '❄'; // Kar taneleri
-        snowflake.style.position = 'absolute';
-        snowflake.style.fontSize = '2.5em';
-        snowflake.style.color = '#fff';
-        snowflake.style.top = `${50 + (Math.random() * 10)}%`;
-        snowflake.style.left = `${(50 + (index * 3))}%`; // Mesajın her harfi kar tanesiyle yapılacak
-        snowflake.style.animation = `fall ${Math.random() * 5 + 5}s linear infinite`;
-        container.appendChild(snowflake);
-    });
-
-    setTimeout(() => {
-        createSnowflakes();
-    }, 5000); // Mesaj gösterildikten sonra kar yağmaya başlasın
-}
-
-function createSnowflakes() {
-    const container = document.querySelector('.background-snowflakes');
-    const numberOfSnowflakes = 10; // Kar taneleri sayısı
+    const numberOfSnowflakes = 10; // Kar tanesi sayısını azalttık (10 tane)
 
     for (let i = 0; i < numberOfSnowflakes; i++) {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄'; // Kar tanesi simgesi
         snowflake.style.left = Math.random() * 100 + 'vw'; // Rastgele yatay konum
-        snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // Farklı boyutlarda kar taneleri
-        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Her kar tanesinin farklı hızla düşmesi
-        snowflake.style.animationName = 'fall';
+        snowflake.style.fontSize = 4 + Math.random() * 2 + 'em'; // Kar tanelerini büyüttük
+        snowflake.style.animationDelay = Math.random() * 5 + 's'; // Rastgele animasyon başlangıçları
         container.appendChild(snowflake);
     }
 }
+
+// Sayfa yüklendiğinde sadece kar tanelerini oluştur
+window.onload = createBackgroundSnowflakes;
