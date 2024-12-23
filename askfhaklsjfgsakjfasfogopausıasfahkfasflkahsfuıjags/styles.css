@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
     background-color: #1d3557;
     color: #e63946;
@@ -14,11 +14,14 @@ body {
 }
 
 h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 2.5vw; /* Daha da küçültüldü */
+    font-family: 'Arial', sans-serif;
+    font-size: 3vw; /* Başlık boyutunu biraz küçülttük */
     color: #f1faee;
-    margin-top: 5px;
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+    margin-top: 3px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hidden {
@@ -26,15 +29,15 @@ h1 {
 }
 
 button {
-    padding: 1px 2px; /* Küçültülmüş buton boyutu */
+    padding: 2px 4px;
     margin: 3px;
     background-color: #457b9d;
     border: none;
     border-radius: 6px;
-    font-size: 3vw; /* Küçültülmüş buton font boyutu */
+    font-size: 2.5vw; /* Küçük buton fontu */
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     color: #f1faee;
 }
 
@@ -43,8 +46,8 @@ button:hover {
 }
 
 .question-container {
-    margin: 5px 0;
-    font-size: 3.5vw; /* Küçültülmüş soru metni boyutu */
+    margin: 3px 0;
+    font-size: 4vw; /* Küçültülmüş soru metni fontu */
     font-weight: bold;
     color: #f1faee;
 }
@@ -61,27 +64,28 @@ button:hover {
 
 .heart {
     position: absolute;
-    font-size: 2vw; /* Küçültülmüş kalp animasyonu boyutu */
+    font-size: 4vw; /* Kalp boyutunu küçülttük */
     color: red;
     animation: rise 2s ease-out infinite;
     z-index: 1;
 }
 
 #result h2 {
-    font-family: 'Pacifico', cursive;
-    font-size: 2vw; /* Küçültülmüş sonuç başlık fontu */
+    font-family: 'Arial', sans-serif;
+    font-size: 0.5vw; /* Sonuç başlığını küçülttük */
     color: #e63946;
 }
 
 #result p {
-    font-size: 3.5vw; /* Küçültülmüş sonuç mesajı fontu */
+    font-family: 'Arial', sans-serif;
+    font-size: 0.5vw; /* Teşekkür mesajı fontunu küçülttük */
     color: #f1faee;
-    margin: 6px 0;
+    margin: 3px 0;
 }
 
 #gift-image {
-    width: 20vw; /* Küçültülmüş hediye görseli boyutu */
-    max-width: 120px;
+    width: 25vw;
+    max-width: 180px;
     border-radius: 6px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -93,7 +97,7 @@ button:hover {
         opacity: 1;
     }
     100% {
-        transform: translateY(-150px); /* Kalp animasyonunu daha da küçülttük */
+        transform: translateY(-150px);
         opacity: 0;
     }
 }
@@ -113,7 +117,7 @@ button:hover {
 /* Kar Taneleri */
 .snowflake {
     position: absolute;
-    font-size: 0.5em; /* Küçültülmüş kar taneleri boyutu */
+    font-size: 0.5em;
     color: rgba(255, 255, 255, 0.8);
     animation: fall 10s linear infinite;
 }
@@ -130,14 +134,15 @@ button:hover {
     }
 }
 
+/* GIF'ler Başlıkla Aynı Hizada ve Küçültülmüş */
 .christmas-tree,
 .christmas-snowglobe {
-    position: fixed;
-    bottom: 5vh; /* GIF'leri daha da yukarıya taşıdık */
-    width: 20vw;
-    height: 20vh;
-    max-width: 180px;
-    max-height: 180px;
+    position: absolute;
+    top: 5vh; /* Başlıkla aynı hizada */
+    width: 12vw; /* Daha küçük boyut */
+    height: 12vh; /* Daha küçük boyut */
+    max-width: 120px; /* Maksimum boyut */
+    max-height: 120px; /* Maksimum boyut */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -145,50 +150,50 @@ button:hover {
 }
 
 .christmas-tree {
-    left: 5vw;
+    left: 10vw; /* Başlığın solunda */
     background-image: url('https://www.wordsjustforyou.com/wp-content/uploads/2020/12/Merry-Christmas-Neon-Gif-%C2%A9-wj4u77702122022.gif');
 }
 
 .christmas-snowglobe {
-    right: 5vw;
+    right: 10vw; /* Başlığın sağında */
     background-image: url('https://cf.kizlarsoruyor.com/q12950336/c1db44f4-cb5a-4b4e-956b-7b69e4dd9549.gif');
 }
 
 /* Media Queries for Mobile */
 @media only screen and (max-width: 768px) {
     h1 {
-        font-size: 5vw; /* Daha küçük ekranlar için font büyüklüğünü ayarladık */
+        font-size: 6vw; /* Başlık boyutunu küçük ekranlarda daha uygun hale getirdik */
     }
 
     button {
         padding: 3px 6px;
-        font-size: 4vw; /* Daha küçük buton boyutu */
+        font-size: 4vw;
     }
 
     .question-container {
-        font-size: 4vw; /* Soru metni boyutunu küçülttük */
+        font-size: 4.5vw;
     }
 
     #result h2 {
-        font-size: 6vw;
+        font-size: 5vw;
     }
 
     #result p {
-        font-size: 3.5vw; /* Sonuç mesajı boyutunu küçülttük */
+        font-size: 3.5vw; /* Teşekkür mesajı fontunu küçük ekranlarda da küçülttük */
     }
 
     .christmas-tree,
     .christmas-snowglobe {
-        width: 20vw; /* Daha küçük ekranlar için ağaç ve kar küresi boyutunu küçülttük */
-        height: 1000vh;
+        width: 25vw;
+        height: 25vh;
     }
 
     #gift-image {
-        width: 20vw; /* Hediye görselinin boyutunu küçülttük */
-        max-width: 60px;
+        width: 35vw;
+        max-width: 180px;
     }
 
     .heart {
-        font-size: 5vw; /* Kalp animasyonu boyutunu küçülttük */
+        font-size: 10vw;
     }
 }
