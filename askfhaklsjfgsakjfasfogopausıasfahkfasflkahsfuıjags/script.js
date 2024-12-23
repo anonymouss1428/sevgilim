@@ -4,8 +4,12 @@ function checkAnswer(correct, current, next, giftImage = null) {
     const resultElement = document.getElementById('result');
     const giftImgElement = document.getElementById('gift-image');
 
-    if (event.target.innerText === correct) {
+    const selectedAnswer = event.target.innerText;
+
+    // Doğru cevap kontrolü
+    if (selectedAnswer === correct) {
         if (giftImage) {
+            showHearts(); // Doğru cevap verildiğinde kalp efekti göster
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
@@ -16,9 +20,13 @@ function checkAnswer(correct, current, next, giftImage = null) {
                 }
             }, 2000);
         }
-        showHearts(); // Doğru cevap verildiğinde kalp efektini göster
     } else {
-        alert("Yanlış cevapp! Tekrar deneyin.");
+        alert("Yanlış cevap! Tekrar deneyin.");
+    }
+
+    // Son soru bitince teşekkür mesajını göster
+    if (next === 'result') {
+        showThankYouMessage();
     }
 }
 
@@ -46,8 +54,7 @@ function createBackgroundSnowflakes() {
     container.className = 'background-snowflakes';
     document.body.appendChild(container);
 
-    const numberOfSnowflakes = 10;
-
+    const numberOfSnowflakes = 4;
     for (let i = 0; i < numberOfSnowflakes; i++) {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
@@ -59,5 +66,9 @@ function createBackgroundSnowflakes() {
     }
 }
 
-// Sayfa yüklendiğinde sadece kar tanelerini oluştur
+function showThankYouMessage() {
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    thankYouMessage.classList.remove('hidden');
+}
+
 window.onload = createBackgroundSnowflakes;
