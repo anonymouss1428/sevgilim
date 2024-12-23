@@ -1,3 +1,12 @@
+function startGame() {
+    // Başlangıç sayfasını gizle
+    document.getElementById('startPage').classList.add('hidden');
+
+    // İlk soruyu göster
+    document.getElementById('question1').classList.remove('hidden');
+    startGifs(); // Başlangıçta GIF'leri göster
+}
+
 function checkAnswer(correct, current, next, giftImage = null) {
     const currentElement = document.getElementById(current);
     const nextElement = document.getElementById(next);
@@ -9,7 +18,9 @@ function checkAnswer(correct, current, next, giftImage = null) {
     // Doğru cevap kontrolü
     if (selectedAnswer === correct) {
         if (giftImage) {
-            showHearts(); // Doğru cevap verildiğinde kalp efekti göster
+            // Hediye görseli gösterildiğinde GIF'leri gizle
+            stopGifs();
+
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
@@ -42,6 +53,7 @@ function showHearts() {
             heart.style.animation = 'rise 2s ease-out';
             container.appendChild(heart);
 
+            // Kalp animasyonu bitince kaldır
             setTimeout(() => {
                 heart.remove();
             }, 2000);
@@ -66,9 +78,33 @@ function createBackgroundSnowflakes() {
     }
 }
 
+function stopGifs() {
+    // Hediye görseli gösterildiğinde GIF'leri durdur
+    const treeGif = document.querySelector('.christmas-tree');
+    const globeGif = document.querySelector('.christmas-snowglobe');
+    if (treeGif && globeGif) {
+        treeGif.style.display = 'none';
+        globeGif.style.display = 'none';
+    }
+}
+
+function startGifs() {
+    // Başlangıçta GIF'leri göster
+    const treeGif = document.querySelector('.christmas-tree');
+    const globeGif = document.querySelector('.christmas-snowglobe');
+    if (treeGif && globeGif) {
+        treeGif.style.display = 'block';
+        globeGif.style.display = 'block';
+    }
+}
+
 function showThankYouMessage() {
     const thankYouMessage = document.getElementById('thankYouMessage');
     thankYouMessage.classList.remove('hidden');
 }
 
-window.onload = createBackgroundSnowflakes;
+// Sayfa yüklendiğinde gif'leri başlat
+window.onload = function() {
+    createBackgroundSnowflakes();
+    startGifs(); // Sayfa başladığında GIF'leri başlat
+};
