@@ -17,28 +17,37 @@ function checkAnswer(correct, current, next, giftImage = null) {
 
     // Doğru cevap kontrolü
     if (selectedAnswer === correct) {
+
         if (giftImage) {
             // Hediye görseli gösterildiğinde GIF'leri gizle
+            showHearts();
             stopGifs();
-
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
-                    nextElement.classList.remove('hidden');
+                 if (next === 'result') {
+                        showThankYouMessage();
+                        stopGifs();
+                    }
+                    else{
+                        nextElement.classList.remove('hidden');
+                        startGifs();
+                    }
+
                 }
             }, 2000);
+
         }
     } else {
         alert("Yanlış cevap! Tekrar deneyin.");
     }
 
     // Son soru bitince teşekkür mesajını göster
-    if (next === 'result') {
-        showThankYouMessage();
-    }
+
+
 }
 
 function showHearts() {
@@ -66,14 +75,15 @@ function createBackgroundSnowflakes() {
     container.className = 'background-snowflakes';
     document.body.appendChild(container);
 
-    const numberOfSnowflakes = 4;
+    const numberOfSnowflakes = 50;
     for (let i = 0; i < numberOfSnowflakes; i++) {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
         snowflake.style.left = Math.random() * 100 + 'vw';
-        snowflake.style.fontSize = 4 + Math.random() * 2 + 'em';
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.bottom = Math.random() * 900 + 'vh'
+        snowflake.style.fontSize = 2 + Math.random() * 2 + 'em';
+        snowflake.style.animationDelay = 0.5 * Math.random() + 's';
         container.appendChild(snowflake);
     }
 }
@@ -101,10 +111,10 @@ function startGifs() {
 function showThankYouMessage() {
     const thankYouMessage = document.getElementById('thankYouMessage');
     thankYouMessage.classList.remove('hidden');
+
 }
 
 // Sayfa yüklendiğinde gif'leri başlat
 window.onload = function() {
     createBackgroundSnowflakes();
-    startGifs(); // Sayfa başladığında GIF'leri başlat
 };
