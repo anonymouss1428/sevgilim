@@ -17,7 +17,7 @@ body {
 h1 {
     font-size: 5vw;
     color: #f1faee;
-    margin: 10px 0;
+    margin: 8px 0;
     text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
 }
 
@@ -27,8 +27,8 @@ h1 {
 
 /* Buton Stilleri */
 button {
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 8px 16px;
+    margin: 8px;
     background-color: #457b9d;
     border: none;
     border-radius: 20px;
@@ -46,15 +46,15 @@ button:hover {
 
 /* Soru Kutusu */
 .question-container {
-    margin: 20px auto;
-    font-size: 4.5vw;
+    margin: 16px auto;
+    font-size: 3.5vw;
     font-weight: bold;
     color: #f1faee;
 }
 
 /* Hediye Görseli */
 #gift-image {
-    width: 40vw;
+    width: 120vw;
     max-width: 200px;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);

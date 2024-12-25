@@ -29,7 +29,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
                         startGifs();
                     }
                 }
-            }, 2000);
+            }, 4000);
         }
     } else {
         alert("Yanlış cevap! Tekrar deneyin.");
