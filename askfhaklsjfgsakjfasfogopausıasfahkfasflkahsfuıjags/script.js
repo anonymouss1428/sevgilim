@@ -1,10 +1,7 @@
 function startGame() {
-    // Başlangıç sayfasını gizle
     document.getElementById('startPage').classList.add('hidden');
-
-    // İlk soruyu göster
     document.getElementById('question1').classList.remove('hidden');
-    startGifs(); // Başlangıçta GIF'leri göster
+    startGifs();
 }
 
 function checkAnswer(correct, current, next, giftImage = null) {
@@ -12,42 +9,31 @@ function checkAnswer(correct, current, next, giftImage = null) {
     const nextElement = document.getElementById(next);
     const resultElement = document.getElementById('result');
     const giftImgElement = document.getElementById('gift-image');
-
     const selectedAnswer = event.target.innerText;
 
-    // Doğru cevap kontrolü
     if (selectedAnswer === correct) {
-
         if (giftImage) {
-            // Hediye görseli gösterildiğinde GIF'leri gizle
             showHearts();
-            stopGifs();
+            toggleGifVisibility(false);
             giftImgElement.src = giftImage;
             resultElement.classList.remove('hidden');
             currentElement.classList.add('hidden');
             setTimeout(() => {
                 resultElement.classList.add('hidden');
                 if (nextElement) {
-                 if (next === 'result') {
+                    if (next === 'result') {
                         showThankYouMessage();
-                        stopGifs();
-                    }
-                    else{
+                        toggleGifVisibility(false);
+                    } else {
                         nextElement.classList.remove('hidden');
                         startGifs();
                     }
-
                 }
             }, 2000);
-
         }
     } else {
         alert("Yanlış cevap! Tekrar deneyin.");
     }
-
-    // Son soru bitince teşekkür mesajını göster
-
-
 }
 
 function showHearts() {
@@ -59,13 +45,8 @@ function showHearts() {
             heart.textContent = '❤';
             heart.style.left = Math.random() * window.innerWidth + 'px';
             heart.style.top = window.innerHeight + 'px';
-            heart.style.animation = 'rise 2s ease-out';
             container.appendChild(heart);
-
-            // Kalp animasyonu bitince kaldır
-            setTimeout(() => {
-                heart.remove();
-            }, 2000);
+            setTimeout(() => heart.remove(), 2000);
         }, i * 200);
     }
 }
@@ -75,46 +56,40 @@ function createBackgroundSnowflakes() {
     container.className = 'background-snowflakes';
     document.body.appendChild(container);
 
-    const numberOfSnowflakes = 50;
-    for (let i = 0; i < numberOfSnowflakes; i++) {
+    for (let i = 0; i < 10; i++) {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.textContent = '❄';
         snowflake.style.left = Math.random() * 100 + 'vw';
-        snowflake.style.bottom = Math.random() * 900 + 'vh'
-        snowflake.style.fontSize = 2 + Math.random() * 2 + 'em';
-        snowflake.style.animationDelay = 0.5 * Math.random() + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.fontSize = 1.5 + Math.random() * 2 + 'em';
         container.appendChild(snowflake);
     }
 }
 
-function stopGifs() {
-    // Hediye görseli gösterildiğinde GIF'leri durdur
+function toggleGifVisibility(show) {
     const treeGif = document.querySelector('.christmas-tree');
     const globeGif = document.querySelector('.christmas-snowglobe');
+    const displayValue = show ? 'block' : 'none';
     if (treeGif && globeGif) {
-        treeGif.style.display = 'none';
-        globeGif.style.display = 'none';
+        treeGif.style.display = displayValue;
+        globeGif.style.display = displayValue;
     }
 }
 
 function startGifs() {
-    // Başlangıçta GIF'leri göster
-    const treeGif = document.querySelector('.christmas-tree');
-    const globeGif = document.querySelector('.christmas-snowglobe');
-    if (treeGif && globeGif) {
-        treeGif.style.display = 'block';
-        globeGif.style.display = 'block';
-    }
+    toggleGifVisibility(true);
+}
+
+function stopGifs() {
+    toggleGifVisibility(false);
 }
 
 function showThankYouMessage() {
     const thankYouMessage = document.getElementById('thankYouMessage');
     thankYouMessage.classList.remove('hidden');
-
 }
 
-// Sayfa yüklendiğinde gif'leri başlat
 window.onload = function() {
     createBackgroundSnowflakes();
 };
