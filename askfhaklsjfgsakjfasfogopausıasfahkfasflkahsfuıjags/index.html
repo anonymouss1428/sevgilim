@@ -8,13 +8,18 @@
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
+
 <div class="effect-container"></div>
 
 <!-- Başlangıç Sayfası -->
 <div id="startPage" class="start-page">
     <h1>Sevgilime Özel Oyun</h1>
     <p>Zorluk Seviyesi: Bambasit</p>
-    <button onclick="startGame()">Başla</button>
+    <button onclick="startGame() & document.getElementById('myAudio').play()">Başla</button>
+    <audio id="myAudio">
+        <source src="music.mp3" type="audio/mp3">
+        Tarayıcınız ses dosyasını desteklemiyor.
+    </audio>
 </div>
 
 <!-- Oyun Sayfaları -->
@@ -67,6 +72,7 @@
 <!-- GIF'ler -->
 <img class="christmas-tree" src="https://www.wordsjustforyou.com/wp-content/uploads/2020/12/Merry-Christmas-Neon-Gif-%C2%A9-wj4u77702122022.gif" alt="Christmas Tree" />
 <img class="christmas-snowglobe" src="https://cf.kizlarsoruyor.com/q12950336/c1db44f4-cb5a-4b4e-956b-7b69e4dd9549.gif" alt="Christmas Snowglobe" />
+<img class="christmas-snowman" src="https://www.hareketligifler.net/data/media/705/yilbasi-karti-hareketli-resim-0079.gif" alt="Christmas Snowman" />
 
 <script src="script.js"></script>
 </body>

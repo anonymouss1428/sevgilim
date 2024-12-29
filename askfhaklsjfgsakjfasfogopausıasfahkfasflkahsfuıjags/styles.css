@@ -39,6 +39,7 @@ button {
     color: #f1faee;
 }
 
+
 button:hover {
     background-color: #1d3557;
     transform: scale(1.05);
@@ -151,6 +152,12 @@ button:hover {
         left: 30vw;
         top: 10vh;
     }
+
+    .christmas-snowman {
+        left: 30vw;
+        top: 10vh;
+    }
+
 
     .christmas-tree,
     .christmas-snowglobe {
