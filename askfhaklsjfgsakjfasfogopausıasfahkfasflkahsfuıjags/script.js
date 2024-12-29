@@ -26,6 +26,7 @@ function checkAnswer(correct, current, next, giftImage = null) {
                 if (nextElement) {
                     if (next === 'result') {
                         showThankYouMessage();
+                        showHearts(20000)
                         toggleQuestionGifVisibility(false); // Soru GIF'lerini gizle
                         toggleSnowmanGifVisibility(true); // Snowman GIF'ini göster
                     } else {
